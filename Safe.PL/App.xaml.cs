@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Safe.BL;
+using Safe.BL.Managers;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,6 +18,7 @@ namespace Safe.PL
         protected override void OnStart()
         {
             // Handle when your app starts
+            Main.Instance.Init();
         }
 
         protected override void OnSleep()

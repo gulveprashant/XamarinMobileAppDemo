@@ -6,8 +6,8 @@
              mc:Ignorable="d"
              x:Class="Safe.PL.LoginPage">
         <StackLayout VerticalOptions="Center" Margin="20">
-            <Entry x:Name="userNameEntry" Placeholder="User Name"/>
-            <Entry x:Name="passwordEntry" Placeholder="Password" IsPassword="True"/>
+            <Entry x:Name="userNameEntry" Placeholder="User Name" Text="username"/>
+            <Entry x:Name="passwordEntry" Placeholder="Password" IsPassword="True" Text="password"/>
             <Button x:Name="loginButton" Text="Log In" Margin="0,20,0,0" Clicked="LoginButton_Clicked"/>
             <Label x:Name="loginStatusLabel" Text="" TextColor="Red"/>
         </StackLayout>

@@ -5,9 +5,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Safe.PL.NotesListPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="addNoteButton" Text="Add" Clicked="AddNoteButton_Clicked"/>
+    </ContentPage.ToolbarItems>
         <StackLayout VerticalOptions="Center">
-            <Label Text="Welcome to Notes List Page !"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <ListView x:Name="notesListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Title}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 </ContentPage>

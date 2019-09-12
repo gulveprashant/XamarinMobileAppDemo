@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Safe.PL.NewNoteFormPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="saveNoteButton" Text="Save" Clicked="SaveNoteButton_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Entry x:Name="titleEntry" Grid.Row="0" Placeholder="Title" Text="{Binding Title}"/>
+        <Editor x:Name="noteEntry" Grid.Row="1" Placeholder="Enter the note here ... " Text="{Binding NoteText}"/>
+    </Grid>
+</ContentPage>

@@ -1,19 +1,39 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
 namespace Safe.BL.Entities
 {
+    [Table("Note")]
     public class Note : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private int _Id;
 
         private string _Title;
 
         private string _NoteText;
 
         private DateTime _LastModifiedTime;
+
+        public Note()
+        {
+            _LastModifiedTime = DateTime.Now;
+        }
+
+        [PrimaryKey, AutoIncrement]
+        public int Id
+        {
+            get { return _Id; }
+            set
+            {
+                _Id = value;
+                NotifyPropertyChanged("Id");
+            }
+        }
 
         public DateTime LastModifiedTime
         {
