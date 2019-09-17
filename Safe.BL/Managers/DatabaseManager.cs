@@ -74,17 +74,74 @@ namespace Safe.BL.Managers
                     _DbConnection.CreateTableAsync<Credential>().Wait();
                     credentials = await _DbConnection.Table<Credential>().ToListAsync();
 
-                    Disconnect();
+                    
                 }
                 catch (Exception ex)
                 {
                     
+                }
+                finally
+                {
+                    Disconnect();
                 }
 
                 return credentials;
             }
 
             return null;
+        }
+
+        public async Task<bool> DeleteCredential(Credential credential)
+        {
+            bool isDeleted = false;
+            Connect();
+
+            if (_DbConnection != null)
+            {
+                try
+                {
+                    _DbConnection.CreateTableAsync<Credential>().Wait();
+                    int rowsDeleted = await _DbConnection.Table<Credential>().DeleteAsync(x => x.Id == credential.Id);
+
+                    isDeleted = (rowsDeleted != 0);
+                }
+                catch (Exception ex)
+                {
+                }
+                finally
+                {
+                    Disconnect();
+                }
+            }
+
+            return isDeleted;
+        }
+
+        public async Task<bool> UpdateCredential(Credential credential)
+        {
+            bool isUpdated = false;
+            Connect();
+
+            if (_DbConnection != null)
+            {
+                try
+                {
+                    _DbConnection.CreateTableAsync<Credential>().Wait();
+
+                    await _DbConnection.UpdateAsync(credential);
+
+                    isUpdated = true;
+                }
+                catch (Exception ex)
+                {
+                }
+                finally
+                {
+                    Disconnect();
+                }
+            }
+
+            return isUpdated;
         }
 
         public async Task<List<Note>> GetNotes()
@@ -101,11 +158,14 @@ namespace Safe.BL.Managers
                     _DbConnection.CreateTableAsync<Note>().Wait();
                     notes = await _DbConnection.Table<Note>().ToListAsync();
 
-                    Disconnect();
                 }
                 catch (Exception ex)
                 {
 
+                }
+                finally
+                {
+                    Disconnect();
                 }
 
                 return notes;

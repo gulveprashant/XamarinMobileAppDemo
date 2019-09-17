@@ -1,5 +1,5 @@
-﻿using Safe.BL;
-using Safe.BL.Entities;
+﻿using Safe.BL.Entities;
+using Safe.PL.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +14,12 @@ namespace Safe.PL
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewCredentialFormPage : ContentPage
     {
-        public NewCredentialFormPage()
+        private bool _IsEditCredentialPage;
+        public NewCredentialFormPage(Credential cred, bool isEditPage)
         {
             InitializeComponent();
-            this.BindingContext = new Credential();
+            this.BindingContext = cred;
+            _IsEditCredentialPage = isEditPage;
         }
 
         private async void SaveCredentialButton_Clicked(object sender, EventArgs e)
@@ -27,7 +29,15 @@ namespace Safe.PL
 
             if (isValid)
             {
-                await Main.Instance.AddCredential(credential);
+                if(_IsEditCredentialPage)
+                {
+                    await Main.Instance.UpdateCredential(credential);
+                }
+                else
+                {
+                    await Main.Instance.AddCredential(credential);
+                }
+                
 
                 DisplayAlert("Success", "Record added successfully", "Ok");
 

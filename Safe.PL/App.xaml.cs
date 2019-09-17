@@ -1,5 +1,5 @@
-﻿using Safe.BL;
-using Safe.BL.Managers;
+﻿using Safe.BL.Managers;
+using Safe.PL.ViewModel;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

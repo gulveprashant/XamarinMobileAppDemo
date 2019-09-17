@@ -19,22 +19,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="CredentialsListPage.xaml">
+    <EmbeddedResource Update="Views\CredentialsListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="LoginPage.xaml">
+    <EmbeddedResource Update="Views\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="NewCredentialFormPage.xaml">
+    <EmbeddedResource Update="Views\NewCredentialFormPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="NewNoteFormPage.xaml">
+    <EmbeddedResource Update="Views\NewNoteFormPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="NotesListPage.xaml">
+    <EmbeddedResource Update="Views\NotesListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="SettingsPage.xaml">
+    <EmbeddedResource Update="Views\SettingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

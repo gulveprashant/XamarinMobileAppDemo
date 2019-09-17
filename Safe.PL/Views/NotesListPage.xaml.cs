@@ -1,4 +1,5 @@
 ﻿using Safe.BL;
+using Safe.PL.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,31 +15,15 @@ namespace Safe.PL
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NotesListPage : ContentPage
     {
+        private NotesVM _ViewModel;
         public NotesListPage()
         {
             InitializeComponent();
 
-            Main.Instance.PropertyChanged += ListUpdatedEventHandler;
+            _ViewModel = new NotesVM();
+            this.BindingContext = _ViewModel;
         }
 
-        private void ListUpdatedEventHandler(object sender, PropertyChangedEventArgs e)
-        {
-            switch (e.PropertyName)
-            {
-                case "Notes":
-                    {
-                        notesListView.ItemsSource = Main.Instance.Notes;
-                        break;
-                    }
-            }
-        }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-
-            notesListView.ItemsSource = Main.Instance.Notes;
-        }
 
         private void AddNoteButton_Clicked(object sender, EventArgs e)
         {

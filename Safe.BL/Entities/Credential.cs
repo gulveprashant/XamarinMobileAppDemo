@@ -1,5 +1,4 @@
-﻿using Safe.BL.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
@@ -8,7 +7,7 @@ using SQLite;
 namespace Safe.BL.Entities
 {
     [Table("Credentials")]
-    public class Credential : INotifyPropertyChanged
+    public class Credential : INotifyPropertyChanged, ICloneable
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -23,7 +22,7 @@ namespace Safe.BL.Entities
         private string _Password;
 
         private DateTime _LastModifiedTime;
-
+        
         public Credential()
         {
             _LastModifiedTime = DateTime.Now;
@@ -98,6 +97,20 @@ namespace Safe.BL.Entities
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+
+        public object Clone()
+        {
+            Credential cloneObj = new Credential();
+
+            cloneObj.CredentialType = this.CredentialType;
+            cloneObj.Id = this.Id;
+            cloneObj.LastModifiedTime = this.LastModifiedTime;
+            cloneObj.Username = this.Username;
+            cloneObj.Password = this.Password;
+            cloneObj.Title = this.Title;
+
+            return cloneObj;
         }
     }
 }

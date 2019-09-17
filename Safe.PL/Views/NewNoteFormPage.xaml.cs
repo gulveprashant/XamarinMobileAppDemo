@@ -1,5 +1,5 @@
-﻿using Safe.BL;
-using Safe.BL.Entities;
+﻿using Safe.BL.Entities;
+using Safe.PL.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
