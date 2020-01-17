@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:localCtrls="clr-namespace:Safe.PL.Controls"
              mc:Ignorable="d"
              x:Class="Safe.PL.NewNoteFormPage">
     <ContentPage.ToolbarItems>
@@ -13,7 +14,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Entry x:Name="titleEntry" Grid.Row="0" Placeholder="Title" Text="{Binding Title}"/>
+        <localCtrls:FloatingLabelEntry x:Name="titleEntry" Grid.Row="0" LabelText="Title" Text="{Binding Title}"/>
         <Editor x:Name="noteEntry" Grid.Row="1" Placeholder="Enter the note here ... " Text="{Binding NoteText}"/>
     </Grid>
 </ContentPage>
