@@ -39,10 +39,15 @@ namespace Safe.PL
                 }
                 
 
-                DisplayAlert("Success", "Record added successfully", "Ok");
+                await DisplayAlert("Success", "Record added successfully", "Ok");
 
                 await Navigation.PopAsync();
             }
+        }
+
+        private void ContentPage_BindingContextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

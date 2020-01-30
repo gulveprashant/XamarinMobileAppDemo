@@ -1,16 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             BindingContextChanged="FLE_BindingContextChanged"
+             Margin="0" Padding="0" BackgroundColor="{Binding BackgroundColor}" Spacing="0"
              x:Class="Safe.PL.Controls.FloatingLabelEntry">
-  <ContentView.Content>
-      <StackLayout Margin="0" Padding="0" BackgroundColor="{Binding BackgroundColor}" Spacing="0">
           <Label x:Name="lblLabelText" Margin="0" Text="{Binding LabelText}" TextColor="{Binding LabelColor}" 
                  FontSize="Small" VerticalTextAlignment="End" />
             <Entry x:Name="entInputArea" Margin="0" Text="{Binding Text}" Placeholder="{Binding LabelText}"
-                   TextColor="{Binding EntryTextColor}" IsPassword="{Binding IsPassword}"/>
-        </StackLayout>
-  </ContentView.Content>
-</ContentView>
+                   TextColor="{Binding EntryTextColor}" IsPassword="{Binding IsPassword}" Completed="OnTextChanged"/>
+</StackLayout>

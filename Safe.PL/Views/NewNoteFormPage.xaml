@@ -7,14 +7,18 @@
              mc:Ignorable="d"
              x:Class="Safe.PL.NewNoteFormPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="saveNoteButton" Text="Save" Clicked="SaveNoteButton_Clicked"/>
+        <ToolbarItem x:Name="saveNoteButton" Text="Save" IconImageSource="save.png" Clicked="SaveNoteButton_Clicked"/>
     </ContentPage.ToolbarItems>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <localCtrls:FloatingLabelEntry x:Name="titleEntry" Grid.Row="0" LabelText="Title" Text="{Binding Title}"/>
-        <Editor x:Name="noteEntry" Grid.Row="1" Placeholder="Enter the note here ... " Text="{Binding NoteText}"/>
-    </Grid>
+    <StackLayout>
+        <Label Text="Add Note" FontSize="Title" HorizontalTextAlignment="Center"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <localCtrls:FloatingLabelEntry x:Name="titleEntry" Grid.Row="0" LabelText="Title" Text="{Binding Title}"/>
+            <Editor x:Name="noteEntry" Grid.Row="1" Placeholder="Enter the note here ... " Text="{Binding NoteText}"/>
+       </Grid>
+    </StackLayout>
+    
 </ContentPage>

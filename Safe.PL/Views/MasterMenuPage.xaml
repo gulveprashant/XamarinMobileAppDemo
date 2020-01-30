@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:localVM="clr-namespace:Safe.PL.ViewModel"
+             xmlns:local="clr-namespace:Safe.PL"
+             mc:Ignorable="d"
+             x:Class="Safe.PL.Views.MasterMenuPage"
+             Title="Personal Organiser">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" BackgroundColor="Orange">
+                <Label  Text="Welcome !" FontSize="Title" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+            </Grid>
+            <ListView x:Name="lstMainMenu" Grid.Row="1" x:FieldModifier="public">
+                <ListView.ItemsSource>
+                    <x:Array Type="{x:Type localVM:MainMenuItem}">
+                        <localVM:MainMenuItem Title="Credentials" IconSource="credentials.png" TargetType="{x:Type local:CredentialsListPage}" />
+                        <localVM:MainMenuItem Title="Notes" IconSource="notes.png" TargetType="{x:Type local:NotesListPage}" />
+                        <localVM:MainMenuItem Title="Settings" IconSource="settings.png" TargetType="{x:Type local:SettingsPage}" />
+                    </x:Array>
+                </ListView.ItemsSource>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="5,10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding IconSource}" />
+                                <Label Grid.Column="1" Text="{Binding Title}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+</ContentPage>

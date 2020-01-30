@@ -26,6 +26,9 @@ namespace Safe.BL.Entities
         public Credential()
         {
             _LastModifiedTime = DateTime.Now;
+            _Title = String.Empty;
+            _Username = string.Empty;
+            _Password = string.Empty;
         }
 
         [PrimaryKey, AutoIncrement]

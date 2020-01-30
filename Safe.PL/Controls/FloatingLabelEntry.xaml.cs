@@ -10,13 +10,14 @@ using Xamarin.Forms.Xaml;
 namespace Safe.PL.Controls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FloatingLabelEntry : ContentView
+    public partial class FloatingLabelEntry : StackLayout
     {
         public static readonly BindableProperty LabelTextProperty = 
             BindableProperty.Create("LabelText", typeof(string), typeof(FloatingLabelEntry), String.Empty);
 
         public static readonly BindableProperty TextProperty =
-            BindableProperty.Create("Text", typeof(string), typeof(FloatingLabelEntry), String.Empty);
+            BindableProperty.Create("Text", typeof(string), typeof(FloatingLabelEntry), String.Empty, 
+                defaultBindingMode: BindingMode.TwoWay, propertyChanged: TextPropertyChanged);
 
         public static readonly BindableProperty LabelColorProperty =
             BindableProperty.Create("LabelColor", typeof(Color), typeof(FloatingLabelEntry), Color.Blue);
@@ -29,41 +30,67 @@ namespace Safe.PL.Controls
 
         public string LabelText
         {
-            get { return (string)GetValue(LabelTextProperty); }
-            set { SetValue(LabelTextProperty, value); }
+            get { return (string)base.GetValue(LabelTextProperty); }
+            set { base.SetValue(LabelTextProperty, value); }
         }
 
         public string Text
         {
-            get { return (string)GetValue(TextProperty); }
-            set { SetValue(TextProperty, value); }
+            get { return (string)base.GetValue(TextProperty); }
+            set { base.SetValue(TextProperty, value); }
         }
 
         public Color LabelColor
         {
-            get { return (Color)GetValue(LabelColorProperty); }
-            set { SetValue(LabelColorProperty, value); }
+            get { return (Color)base.GetValue(LabelColorProperty); }
+            set { base.SetValue(LabelColorProperty, value); }
         }
 
         public Color EntryTextColor
         {
-            get { return (Color)GetValue(EntryTextColorProperty); }
-            set { SetValue(EntryTextColorProperty, value); }
+            get { return (Color)base.GetValue(EntryTextColorProperty); }
+            set { base.SetValue(EntryTextColorProperty, value); }
         }
 
         public Boolean IsPassword
         {
-            get { return (Boolean)GetValue(IsPasswordProperty); }
-            set { SetValue(IsPasswordProperty, value); }
+            get { return (Boolean)base.GetValue(IsPasswordProperty); }
+            set { base.SetValue(IsPasswordProperty, value); }
+        }
+
+        private void InitializeDefaults()
+        {
+            IsPassword = false;
+            LabelText = "Label-Here";
+            Text = "Entry-Here";
+            LabelColor = Color.Navy;
+            EntryTextColor = Color.CornflowerBlue;
         }
 
         public FloatingLabelEntry()
         {
+            InitializeDefaults();
+
             InitializeComponent();
             this.PropertyChanged += FloatingLabelEntry_PropertyChanged;
 
             this.BindingContext = this;
 
+        }
+
+        private void OnTextChanged(object sender, EventArgs e)
+        {
+            Text = entInputArea.Text;
+        }
+
+        private static void TextPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            FloatingLabelEntry control = bindable as FloatingLabelEntry;
+            if (control != null && control.entInputArea != null)
+            {
+                control.Text = newValue.ToString();
+            }
+            
         }
 
         private void FloatingLabelEntry_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -91,6 +118,11 @@ namespace Safe.PL.Controls
                     }
                     break;
             }
+        }
+        
+        private void FLE_BindingContextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

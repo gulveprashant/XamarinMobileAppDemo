@@ -1,5 +1,6 @@
 ﻿using Safe.BL.Managers;
 using Safe.PL.ViewModel;
+using Safe.PL.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,7 +13,7 @@ namespace Safe.PL
         {
             InitializeComponent();
 
-            MainPage = new LoginPage();
+            MainPage = new NavigationPage(new SplashPage());
         }
 
         protected override void OnStart()

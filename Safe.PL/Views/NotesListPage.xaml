@@ -11,17 +11,18 @@
     </ContentPage.Resources>
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="addNoteButton" Text="Add" Clicked="AddNoteButton_Clicked"/>
+        <ToolbarItem x:Name="addNoteButton" Text="Add" IconImageSource="add.png" Clicked="AddNoteButton_Clicked"/>
     </ContentPage.ToolbarItems>
 
     <StackLayout VerticalOptions="Center">
+        <Label Text="Notes" FontSize="Title" HorizontalTextAlignment="Center"/>
         <ListView x:Name="notesListView">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Title}" 
                               Detail="{Binding LastModifiedTime, Converter={StaticResource timeConvertor}}">
                         <TextCell.ContextActions>
-                            <MenuItem Text="Delete" Command="{Binding DeleteNoteCmd}"/>
+                            <MenuItem IconImageSource="delete.png" Command="{Binding DeleteNoteCmd}"/>
                         </TextCell.ContextActions>
                     </TextCell>
                 </DataTemplate>

@@ -5,15 +5,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Safe.PL.SettingsPage">
-    <StackLayout>
+    <StackLayout Margin="10">
         <StackLayout x:Name="contactUsGroup">
-            <Label Text="Contact Us" Style="{StaticResource headingLabelStyle}"/>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="contact.png"/>
+                <Label Text="Contact Us" Style="{StaticResource headingLabelStyle}" VerticalOptions="Center"/>
+            </StackLayout>
+            
             <Button x:Name="contactButton" Text="gulveprashant@gmail.com" Style="{StaticResource plainButtonStyle}" Clicked="ContactButton_Clicked"/>
         </StackLayout>
 
         <StackLayout >
-            <Label Text="Delete Credentials" Style="{StaticResource headingLabelStyle}"/>
-            <Button Text="Clear All History" Style="{StaticResource plainButtonStyle}"/>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="delete_all.png"/>
+                <Label Text="Delete Credentials" Style="{StaticResource headingLabelStyle}" VerticalOptions="Center"/>
+            </StackLayout>
+            
+            <Button Text="Clear All Data" Style="{StaticResource plainButtonStyle}"/>
         </StackLayout>
 
         
