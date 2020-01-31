@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Safe.PL.Controls
             BindableProperty.Create("LabelText", typeof(string), typeof(FloatingLabelEntry), String.Empty);
 
         public static readonly BindableProperty TextProperty =
-            BindableProperty.Create("Text", typeof(string), typeof(FloatingLabelEntry), String.Empty, 
+            BindableProperty.Create("Text", typeof(string), typeof(FloatingLabelEntry), String.Empty,
                 defaultBindingMode: BindingMode.TwoWay, propertyChanged: TextPropertyChanged);
 
         public static readonly BindableProperty LabelColorProperty =
@@ -37,7 +38,10 @@ namespace Safe.PL.Controls
         public string Text
         {
             get { return (string)base.GetValue(TextProperty); }
-            set { base.SetValue(TextProperty, value); }
+            set
+            {
+                base.SetValue(TextProperty, value);
+            }
         }
 
         public Color LabelColor
@@ -71,26 +75,22 @@ namespace Safe.PL.Controls
         {
             InitializeDefaults();
 
-            InitializeComponent();
             this.PropertyChanged += FloatingLabelEntry_PropertyChanged;
 
+            InitializeComponent();
+            
             this.BindingContext = this;
-
         }
-
-        private void OnTextChanged(object sender, EventArgs e)
-        {
-            Text = entInputArea.Text;
-        }
-
+        
         private static void TextPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
             FloatingLabelEntry control = bindable as FloatingLabelEntry;
             if (control != null && control.entInputArea != null)
             {
-                control.Text = newValue.ToString();
+                //control.entInputArea.Text = newValue.ToString();
+                
             }
-            
+
         }
 
         private void FloatingLabelEntry_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -98,18 +98,13 @@ namespace Safe.PL.Controls
             switch(e.PropertyName)
             {
                 case "LabelText":
+                    {
+                        SetLabelValue();
+                    }
+                    break;
                 case "Text":
                     {
-                        if(Text.Length != 0)
-                        {
-                            //Entry is not empty
-                            lblLabelText.Text = LabelText;
-                        }
-                        else
-                        {
-                            //Entry is empty
-                            lblLabelText.Text = " ";
-                        }
+                        SetLabelValue();
                     }
                     break;
                 default:
@@ -119,7 +114,21 @@ namespace Safe.PL.Controls
                     break;
             }
         }
-        
+
+        private void SetLabelValue()
+        {
+            if (Text.Length != 0)
+            {
+                //Entry is not empty
+                lblLabelText.Text = LabelText;
+            }
+            else
+            {
+                //Entry is empty
+                lblLabelText.Text = " ";
+            }
+        }
+
         private void FLE_BindingContextChanged(object sender, EventArgs e)
         {
 

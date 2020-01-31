@@ -14,6 +14,8 @@ namespace Safe.PL.ViewModel
 
         private EditCredentialCommand _EditCredentialCmd;
 
+        private AddCredentialCommand _AddCredentialCmd;
+
         private ObservableCollection<Credential> _Credentials;
 
         public CredentialsVM()
@@ -21,6 +23,7 @@ namespace Safe.PL.ViewModel
             _Credentials = Main.Instance.Credentials;
             _DeleteCredentialCmd = new DeleteCredentialCommand();
             _EditCredentialCmd = new EditCredentialCommand();
+            _AddCredentialCmd = new AddCredentialCommand();
         }
 
         public ObservableCollection<Credential> Credentials
@@ -40,6 +43,12 @@ namespace Safe.PL.ViewModel
         {
             get { return _EditCredentialCmd; }
             set { _EditCredentialCmd = value; }
+        }
+
+        public AddCredentialCommand AddCredentialCmd
+        {
+            get { return _AddCredentialCmd; }
+            set { _AddCredentialCmd = value; }
         }
 
     }

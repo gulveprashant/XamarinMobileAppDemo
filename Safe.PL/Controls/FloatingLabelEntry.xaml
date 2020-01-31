@@ -7,8 +7,10 @@
              BindingContextChanged="FLE_BindingContextChanged"
              Margin="0" Padding="0" BackgroundColor="{Binding BackgroundColor}" Spacing="0"
              x:Class="Safe.PL.Controls.FloatingLabelEntry">
-          <Label x:Name="lblLabelText" Margin="0" Text="{Binding LabelText}" TextColor="{Binding LabelColor}" 
+    <Label x:Name="lblLabelText" Margin="0" Text="{Binding LabelText}" TextColor="{Binding LabelColor}" 
                  FontSize="Small" VerticalTextAlignment="End" />
-            <Entry x:Name="entInputArea" Margin="0" Text="{Binding Text}" Placeholder="{Binding LabelText}"
-                   TextColor="{Binding EntryTextColor}" IsPassword="{Binding IsPassword}" Completed="OnTextChanged"/>
+    
+    <Entry x:Name="entInputArea" Margin="0" Text="{Binding Text,Mode=TwoWay}" Placeholder="{Binding LabelText}"
+                   TextColor="{Binding EntryTextColor}" IsPassword="{Binding IsPassword}"/>
+
 </StackLayout>

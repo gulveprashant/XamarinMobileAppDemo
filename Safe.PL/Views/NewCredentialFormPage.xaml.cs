@@ -15,11 +15,15 @@ namespace Safe.PL
     public partial class NewCredentialFormPage : ContentPage
     {
         private bool _IsEditCredentialPage;
+        public Credential _Credential;
         public NewCredentialFormPage(Credential cred, bool isEditPage)
         {
-            InitializeComponent();
-            this.BindingContext = cred;
+            _Credential = cred;
             _IsEditCredentialPage = isEditPage;
+
+            InitializeComponent();
+            
+            this.BindingContext = _Credential;
         }
 
         private async void SaveCredentialButton_Clicked(object sender, EventArgs e)
@@ -47,7 +51,7 @@ namespace Safe.PL
 
         private void ContentPage_BindingContextChanged(object sender, EventArgs e)
         {
-
+            Credential cred = this.BindingContext as Credential;
         }
     }
 }
