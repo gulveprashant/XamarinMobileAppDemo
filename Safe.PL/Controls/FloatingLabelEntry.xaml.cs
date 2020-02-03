@@ -74,12 +74,12 @@ namespace Safe.PL.Controls
         public FloatingLabelEntry()
         {
             InitializeDefaults();
+            
+            InitializeComponent();
 
             this.PropertyChanged += FloatingLabelEntry_PropertyChanged;
 
-            InitializeComponent();
-            
-            this.BindingContext = this;
+            //this.BindingContext = this;
         }
         
         private static void TextPropertyChanged(BindableObject bindable, object oldValue, object newValue)
@@ -87,8 +87,7 @@ namespace Safe.PL.Controls
             FloatingLabelEntry control = bindable as FloatingLabelEntry;
             if (control != null && control.entInputArea != null)
             {
-                //control.entInputArea.Text = newValue.ToString();
-                
+                control.entInputArea.Text = newValue.ToString();
             }
 
         }
