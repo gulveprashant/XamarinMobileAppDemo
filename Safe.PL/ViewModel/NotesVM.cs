@@ -12,15 +12,18 @@ namespace Safe.PL.ViewModel
     {
         private DeleteNoteCommand _DeleteNoteCmd;
 
+        private EditNoteCommand _EditNoteCmd;
+
         private ObservableCollection<Note> _Notes;
 
         public NotesVM()
         {
             _Notes = Main.Instance.Notes;
             _DeleteNoteCmd = new DeleteNoteCommand();
+            _EditNoteCmd = new EditNoteCommand();
         }
 
-        public ObservableCollection<Note> Credentials
+        public ObservableCollection<Note> Notes
         {
             get { return _Notes; }
             set { _Notes = value; }
@@ -31,6 +34,12 @@ namespace Safe.PL.ViewModel
         {
             get { return _DeleteNoteCmd; }
             set { _DeleteNoteCmd = value; }
+        }
+
+        public EditNoteCommand EditNoteCmd
+        {
+            get { return _EditNoteCmd; }
+            set { _EditNoteCmd = value; }
         }
     }
 }

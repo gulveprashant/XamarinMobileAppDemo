@@ -26,13 +26,10 @@ namespace Safe.BL.Entities
         public Credential()
         {
             _LastModifiedTime = DateTime.Now;
-            //_Title = String.Empty;
-            //_Username = string.Empty;
-            //_Password = string.Empty;
-
-            _Title = "T1";
-            _Username = "U1";
-            _Password = "P1";
+            _Title = String.Empty;
+            _Username = string.Empty;
+            _Password = string.Empty;
+            _HintRemark = String.Empty;
         }
 
         [PrimaryKey, AutoIncrement]
@@ -96,7 +93,20 @@ namespace Safe.BL.Entities
                 NotifyPropertyChanged("CredentialType");
             }
         }
-               
+
+        private String _HintRemark;
+
+        public String HintRemark
+        {
+            get { return _HintRemark; }
+            set 
+            {
+                _HintRemark = value;
+                NotifyPropertyChanged("HintRemark");
+            }
+        }
+
+
 
         private void NotifyPropertyChanged(string propertyName)
         {
@@ -116,6 +126,7 @@ namespace Safe.BL.Entities
             cloneObj.Username = this.Username;
             cloneObj.Password = this.Password;
             cloneObj.Title = this.Title;
+            cloneObj.HintRemark = this.HintRemark;
 
             return cloneObj;
         }

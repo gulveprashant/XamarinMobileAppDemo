@@ -1,4 +1,5 @@
 ﻿using Safe.BL;
+using Safe.BL.Entities;
 using Safe.PL.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,8 @@ namespace Safe.PL
 
         private void AddNoteButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new NewNoteFormPage());
+            Note note = new Note();
+            Navigation.PushAsync(new NewNoteFormPage(note, false));
         }
     }
 }

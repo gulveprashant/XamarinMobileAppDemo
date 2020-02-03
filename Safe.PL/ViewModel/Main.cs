@@ -51,10 +51,16 @@ namespace Safe.PL.ViewModel
         public async void Init()
         {
             List<Credential> credentials = await DatabaseManager.Instance.GetCredentials();
+            List<Note> notes = await DatabaseManager.Instance.GetNotes();
 
-            if(credentials != null)
+            if (credentials != null)
             {
                 Credentials = new ObservableCollection<Credential>(credentials);
+            }
+
+            if (notes != null)
+            {
+                Notes = new ObservableCollection<Note>(notes);
             }
         }
 
@@ -70,35 +76,6 @@ namespace Safe.PL.ViewModel
             }
         }
 
-        public async Task UpdateCredential(Credential credential)
-        {
-            bool isUpdated = await DatabaseManager.Instance.UpdateCredential(credential);
-
-            if (isUpdated)
-            {
-                //Credentials.Add(credential);
-                Credential fromMasterList =  (from cred in Credentials where credential.Id == cred.Id select cred).FirstOrDefault();
-
-                fromMasterList.Title = credential.Title;
-                fromMasterList.Username = credential.Username;
-                fromMasterList.Password = credential.Password;
-
-                Notify("Credentials");
-            }
-        }
-
-        public async Task DeleteCredential(Credential credential)
-        {
-            bool isAdded = await DatabaseManager.Instance.DeleteCredential(credential);
-
-            if (isAdded)
-            {
-                Credentials.Remove(credential);
-
-                Notify("Credentials");
-            }
-        }
-
         public async Task AddNote(Note note)
         {
             bool isAdded = await DatabaseManager.Instance.AddNote(note);
@@ -106,6 +83,64 @@ namespace Safe.PL.ViewModel
             if (isAdded)
             {
                 Notes.Add(note);
+
+                Notify("Notes");
+            }
+        }
+
+        public async Task UpdateCredential(Credential credential)
+        {
+            bool isUpdated = await DatabaseManager.Instance.UpdateCredential(credential);
+
+            if (isUpdated)
+            {
+                Credential fromMasterList =  (from cred in Credentials where credential.Id == cred.Id select cred).FirstOrDefault();
+
+                fromMasterList.Title = credential.Title;
+                fromMasterList.Username = credential.Username;
+                fromMasterList.Password = credential.Password;
+                fromMasterList.HintRemark = credential.HintRemark;
+                fromMasterList.LastModifiedTime = credential.LastModifiedTime;
+
+                Notify("Credentials");
+            }
+        }
+
+        public async Task UpdateNote(Note note)
+        {
+            bool isUpdated = await DatabaseManager.Instance.UpdateNote(note);
+
+            if (isUpdated)
+            {
+                Note fromMasterList = (from n in Notes where note.Id == n.Id select n).FirstOrDefault();
+
+                fromMasterList.Title = note.Title;
+                fromMasterList.NoteText = note.NoteText;
+                fromMasterList.LastModifiedTime = note.LastModifiedTime;
+
+                Notify("Notes");
+            }
+        }
+
+        public async Task DeleteCredential(Credential credential)
+        {
+            bool isremoved = await DatabaseManager.Instance.DeleteCredential(credential);
+
+            if (isremoved)
+            {
+                Credentials.Remove(credential);
+
+                Notify("Credentials");
+            }
+        }
+
+        public async Task DeleteNote(Note note)
+        {
+            bool isremoved = await DatabaseManager.Instance.DeleteNote(note);
+
+            if (isremoved)
+            {
+                Notes.Remove(note);
 
                 Notify("Notes");
             }

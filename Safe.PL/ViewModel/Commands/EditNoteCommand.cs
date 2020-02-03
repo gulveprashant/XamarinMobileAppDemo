@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Safe.PL.ViewModel.Commands
 {
-    public class DeleteNoteCommand : ICommand
+    public class EditNoteCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
 
@@ -19,7 +20,11 @@ namespace Safe.PL.ViewModel.Commands
         {
             Note note = parameter as Note;
 
-            Main.Instance.DeleteNote(note);
+            Note cloneNote = note.Clone() as Note;
+
+            cloneNote.LastModifiedTime = DateTime.Now;
+
+            Application.Current.MainPage.Navigation.PushAsync(new NewNoteFormPage(cloneNote, true));
         }
     }
 }

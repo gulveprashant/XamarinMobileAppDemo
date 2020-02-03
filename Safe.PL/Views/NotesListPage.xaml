@@ -14,19 +14,41 @@
         <ToolbarItem x:Name="addNoteButton" Text="Add" IconImageSource="add.png" Clicked="AddNoteButton_Clicked"/>
     </ContentPage.ToolbarItems>
 
-    <StackLayout VerticalOptions="Center">
-        <Label Text="Notes" FontSize="Title" HorizontalTextAlignment="Center"/>
-        <ListView x:Name="notesListView">
+    <StackLayout VerticalOptions="Start">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
+            <Image Source="notes.png"/>
+            <Label Text="Notes" FontSize="Title" HorizontalTextAlignment="Center"/>
+        </StackLayout>
+        
+        <ListView x:Name="notesListView" ItemsSource="{Binding Notes}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Title}" 
                               Detail="{Binding LastModifiedTime, Converter={StaticResource timeConvertor}}">
                         <TextCell.ContextActions>
-                            <MenuItem IconImageSource="delete.png" Command="{Binding DeleteNoteCmd}"/>
+                            <MenuItem Text="Edit" IconImageSource="edit.png" Command="{Binding Path=BindingContext.EditNoteCmd,
+                                Source={x:Reference notesListView}}" CommandParameter="{Binding}"/>
+
+                            <MenuItem Text="Delete" IconImageSource="delete.png" Command="{Binding Path=BindingContext.DeleteNoteCmd,
+                                Source={x:Reference notesListView}}" CommandParameter="{Binding}"/>
                         </TextCell.ContextActions>
                     </TextCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
+
+            <ListView.Triggers>
+                <DataTrigger TargetType="ListView" Binding="{Binding Notes.Count}" Value="0">
+                    <Setter Property="IsVisible" Value="False"/>
+                </DataTrigger>
+            </ListView.Triggers>
         </ListView>
+
+        <Label Text="You have no notes saved yet !" IsVisible="False" Margin="20">
+            <Label.Triggers>
+                <DataTrigger TargetType="Label" Binding="{Binding Notes.Count}" Value="0">
+                    <Setter Property="IsVisible" Value="True"/>
+                </DataTrigger>
+            </Label.Triggers>
+        </Label>
     </StackLayout>
 </ContentPage>

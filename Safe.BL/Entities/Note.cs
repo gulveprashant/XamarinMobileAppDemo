@@ -7,7 +7,7 @@ using System.Text;
 namespace Safe.BL.Entities
 {
     [Table("Note")]
-    public class Note : INotifyPropertyChanged
+    public class Note : INotifyPropertyChanged, ICloneable
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -35,27 +35,6 @@ namespace Safe.BL.Entities
             }
         }
 
-        public DateTime LastModifiedTime
-        {
-            get { return _LastModifiedTime; }
-            set
-            {
-                _LastModifiedTime = value;
-                NotifyPropertyChanged("LastModifiedTime");
-            }
-        }
-
-
-        public string NoteText
-        {
-            get { return _NoteText; }
-            set
-            {
-                _NoteText = value;
-                NotifyPropertyChanged("NoteText");
-            }
-        }
-        
         public string Title
         {
             get { return _Title; }
@@ -66,12 +45,46 @@ namespace Safe.BL.Entities
             }
         }
 
+        public DateTime LastModifiedTime
+        {
+            get { return _LastModifiedTime; }
+            set
+            {
+                _LastModifiedTime = value;
+                NotifyPropertyChanged("LastModifiedTime");
+            }
+        }
+        
+        public string NoteText
+        {
+            get { return _NoteText; }
+            set
+            {
+                _NoteText = value;
+                NotifyPropertyChanged("NoteText");
+            }
+        }
+        
+        
+
         private void NotifyPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+
+        public object Clone()
+        {
+            Note cloneObj = new Note();
+
+            cloneObj.Id = this.Id;
+            cloneObj.LastModifiedTime = this.LastModifiedTime;
+            cloneObj.Title = this.Title;
+            cloneObj.NoteText = this.NoteText;
+
+            return cloneObj;
         }
     }
 }

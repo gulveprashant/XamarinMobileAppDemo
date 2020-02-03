@@ -16,6 +16,7 @@ namespace Safe.PL
     {
         private bool _IsEditCredentialPage;
         public Credential _Credential;
+
         public NewCredentialFormPage(Credential cred, bool isEditPage)
         {
             _Credential = cred;

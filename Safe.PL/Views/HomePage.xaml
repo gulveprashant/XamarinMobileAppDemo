@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:localViews="clr-namespace:Safe.PL.Views"
+             xmlns:CV="clr-namespace:Safe.PL.Controls"
+             mc:Ignorable="d"
+             x:Class="Safe.PL.Views.HomePage">
+    <ContentPage.Content>
+        <Grid Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+
+            <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="0"
+                           Text="Welcome to your SAFE !"/>
+
+            <CV:CustomButton x:Name="notesBtn" Margin="10" Grid.Row="1" Grid.Column="0" Clicked="notesBtn_Clicked"/>
+
+            <CV:CustomButton x:Name="credBtn" Margin="10" Grid.Row="1" Grid.Column="1" Clicked="credBtn_Clicked"/>
+
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

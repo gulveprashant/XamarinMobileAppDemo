@@ -14,11 +14,17 @@ namespace Safe.PL
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewNoteFormPage : ContentPage
     {
-        public NewNoteFormPage()
+        private bool _IsEditNotePage;
+        private Note _Note;
+
+        public NewNoteFormPage(Note note, bool isEditPage)
         {
+            _IsEditNotePage = isEditPage;
+            _Note = note;
+
             InitializeComponent();
 
-            this.BindingContext = new Note();
+            this.BindingContext = _Note;
         }
 
         private async void SaveNoteButton_Clicked(object sender, EventArgs e)
@@ -28,7 +34,14 @@ namespace Safe.PL
 
             if (isValid)
             {
-                await Main.Instance.AddNote(note);
+                if (_IsEditNotePage)
+                {
+                    await Main.Instance.UpdateNote(note);
+                }
+                else
+                {
+                    await Main.Instance.AddNote(note);
+                }
 
                 await DisplayAlert("Success", "Record added successfully", "Ok");
 

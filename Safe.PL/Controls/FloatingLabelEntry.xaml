@@ -9,8 +9,25 @@
              x:Class="Safe.PL.Controls.FloatingLabelEntry">
     <Label x:Name="lblLabelText" Margin="0" Text="{Binding LabelText}" TextColor="{Binding LabelColor}" 
                  FontSize="Small" VerticalTextAlignment="End" />
-    
+
     <Entry x:Name="entInputArea" Margin="0" Text="{Binding Text,Mode=TwoWay}" Placeholder="{Binding LabelText}"
-                   TextColor="{Binding EntryTextColor}" IsPassword="{Binding IsPassword}"/>
+           TextColor="{Binding EntryTextColor}" PlaceholderColor="{Binding LabelColor}" 
+           IsPassword="{Binding IsPassword}" MaxLength="{Binding MaxLength}" >
+        <Entry.Triggers>
+            <DataTrigger TargetType="Entry" Binding="{Binding IsMultiline}" Value="True">
+                <Setter Property="IsVisible" Value="False"/>
+            </DataTrigger>
+        </Entry.Triggers>
+    </Entry>
+
+    <Editor x:Name="edtInputArea" Margin="0" Text="{Binding Text,Mode=TwoWay}" Placeholder="{Binding LabelText}"
+            TextColor="{Binding EntryTextColor}" PlaceholderColor="{Binding LabelColor}"
+            AutoSize="TextChanges" IsVisible="False" MaxLength="{Binding MaxLength}">
+        <Editor.Triggers>
+            <DataTrigger TargetType="Editor" Binding="{Binding IsMultiline}" Value="True">
+                <Setter Property="IsVisible" Value="True"/>
+            </DataTrigger>
+        </Editor.Triggers>
+    </Editor>
 
 </StackLayout>

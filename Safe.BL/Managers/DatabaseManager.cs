@@ -44,7 +44,7 @@ namespace Safe.BL.Managers
                     _DbConnection = new SQLiteAsyncConnection(_DatabaseURI);
                 }
             }
-            catch(Exception ex)
+            catch(Exception)
             {
 
             }
@@ -76,7 +76,7 @@ namespace Safe.BL.Managers
 
                     
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     
                 }
@@ -105,7 +105,33 @@ namespace Safe.BL.Managers
 
                     isDeleted = (rowsDeleted != 0);
                 }
-                catch (Exception ex)
+                catch (Exception)
+                {
+                }
+                finally
+                {
+                    Disconnect();
+                }
+            }
+
+            return isDeleted;
+        }
+
+        public async Task<bool> DeleteNote(Note note)
+        {
+            bool isDeleted = false;
+            Connect();
+
+            if (_DbConnection != null)
+            {
+                try
+                {
+                    _DbConnection.CreateTableAsync<Note>().Wait();
+                    int rowsDeleted = await _DbConnection.Table<Note>().DeleteAsync(x => x.Id == note.Id);
+
+                    isDeleted = (rowsDeleted != 0);
+                }
+                catch (Exception)
                 {
                 }
                 finally
@@ -132,7 +158,34 @@ namespace Safe.BL.Managers
 
                     isUpdated = true;
                 }
-                catch (Exception ex)
+                catch (Exception)
+                {
+                }
+                finally
+                {
+                    Disconnect();
+                }
+            }
+
+            return isUpdated;
+        }
+
+        public async Task<bool> UpdateNote(Note note)
+        {
+            bool isUpdated = false;
+            Connect();
+
+            if (_DbConnection != null)
+            {
+                try
+                {
+                    _DbConnection.CreateTableAsync<Note>().Wait();
+
+                    await _DbConnection.UpdateAsync(note);
+
+                    isUpdated = true;
+                }
+                catch (Exception)
                 {
                 }
                 finally
@@ -159,7 +212,7 @@ namespace Safe.BL.Managers
                     notes = await _DbConnection.Table<Note>().ToListAsync();
 
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
 
                 }

@@ -14,20 +14,26 @@ namespace Safe.PL.Controls
     public partial class FloatingLabelEntry : StackLayout
     {
         public static readonly BindableProperty LabelTextProperty = 
-            BindableProperty.Create("LabelText", typeof(string), typeof(FloatingLabelEntry), String.Empty);
+            BindableProperty.Create(nameof(LabelText), typeof(string), typeof(FloatingLabelEntry), String.Empty);
 
         public static readonly BindableProperty TextProperty =
-            BindableProperty.Create("Text", typeof(string), typeof(FloatingLabelEntry), String.Empty,
-                defaultBindingMode: BindingMode.TwoWay, propertyChanged: TextPropertyChanged);
+            BindableProperty.Create(nameof(Text), typeof(string), typeof(FloatingLabelEntry), String.Empty,
+                defaultBindingMode: BindingMode.TwoWay);
 
         public static readonly BindableProperty LabelColorProperty =
-            BindableProperty.Create("LabelColor", typeof(Color), typeof(FloatingLabelEntry), Color.Blue);
+            BindableProperty.Create(nameof(LabelColor), typeof(Color), typeof(FloatingLabelEntry), Color.Black);
 
         public static readonly BindableProperty EntryTextColorProperty =
-            BindableProperty.Create("EntryTextColor", typeof(Color), typeof(FloatingLabelEntry), Color.Black);
+            BindableProperty.Create(nameof(EntryTextColor), typeof(Color), typeof(FloatingLabelEntry), Color.Gray);
 
         public static readonly BindableProperty IsPasswordProperty =
-            BindableProperty.Create("IsPassword", typeof(Boolean), typeof(FloatingLabelEntry), false);
+            BindableProperty.Create(nameof(IsPassword), typeof(Boolean), typeof(FloatingLabelEntry), false);
+
+        public static readonly BindableProperty IsMultilineProperty =
+            BindableProperty.Create(nameof(IsMultiline), typeof(Boolean), typeof(FloatingLabelEntry), false);
+
+        public static readonly BindableProperty MaxLengthProperty =
+            BindableProperty.Create(nameof(MaxLength), typeof(UInt32), typeof(FloatingLabelEntry), (UInt32)250);
 
         public string LabelText
         {
@@ -62,36 +68,30 @@ namespace Safe.PL.Controls
             set { base.SetValue(IsPasswordProperty, value); }
         }
 
-        private void InitializeDefaults()
+        public Boolean IsMultiline
         {
-            IsPassword = false;
-            LabelText = "Label-Here";
-            Text = "Entry-Here";
-            LabelColor = Color.Navy;
-            EntryTextColor = Color.CornflowerBlue;
+            get { return (Boolean)base.GetValue(IsMultilineProperty); }
+            set { base.SetValue(IsMultilineProperty, value); }
+        }
+
+        public UInt32 MaxLength
+        {
+            get { return (UInt32)base.GetValue(MaxLengthProperty); }
+            set { base.SetValue(MaxLengthProperty, value); }
         }
 
         public FloatingLabelEntry()
         {
-            InitializeDefaults();
-            
             InitializeComponent();
 
             this.PropertyChanged += FloatingLabelEntry_PropertyChanged;
 
-            //this.BindingContext = this;
+            entInputArea.BindingContext = this;
+            lblLabelText.BindingContext = this;
+            edtInputArea.BindingContext = this;
         }
         
-        private static void TextPropertyChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            FloatingLabelEntry control = bindable as FloatingLabelEntry;
-            if (control != null && control.entInputArea != null)
-            {
-                control.entInputArea.Text = newValue.ToString();
-            }
-
-        }
-
+        
         private void FloatingLabelEntry_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             switch(e.PropertyName)
@@ -116,21 +116,24 @@ namespace Safe.PL.Controls
 
         private void SetLabelValue()
         {
-            if (Text.Length != 0)
-            {
-                //Entry is not empty
-                lblLabelText.Text = LabelText;
-            }
-            else
+            if (Text == null || Text.Length == 0)
             {
                 //Entry is empty
                 lblLabelText.Text = " ";
+                
+            }
+            else
+            {
+                //Entry is not empty
+                lblLabelText.Text = LabelText;
             }
         }
 
         private void FLE_BindingContextChanged(object sender, EventArgs e)
         {
-
+            entInputArea.BindingContext = this;
+            lblLabelText.BindingContext = this;
+            edtInputArea.BindingContext = this;
         }
     }
 }

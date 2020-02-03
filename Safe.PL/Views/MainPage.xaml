@@ -13,10 +13,7 @@
     <MasterDetailPage.Detail>
         <NavigationPage>
             <x:Arguments>
-                <ContentPage>
-                    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
-                           Text="Browse through the menu to get to your destination !"/>
-                </ContentPage>
+                <localView:HomePage/>
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>
