@@ -12,7 +12,6 @@ namespace Safe.PL.Controls
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CustomButton : Button
     {
-        private Color _UserDefinedBGColor;
         public CustomButton()
         {
             InitializeComponent();

@@ -4,12 +4,15 @@ using Safe.PL.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Text;
 
 namespace Safe.PL.ViewModel
 {
-    public class CredentialsVM
+    public class CredentialsVM : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private DeleteCredentialCommand _DeleteCredentialCmd;
 
         private EditCredentialCommand _EditCredentialCmd;
@@ -29,7 +32,11 @@ namespace Safe.PL.ViewModel
         public ObservableCollection<Credential> Credentials
         {
             get { return _Credentials; }
-            set { _Credentials = value; }
+            set 
+            {
+                _Credentials = value;
+                Notify("Credentials");
+            }
         }
 
 
@@ -51,5 +58,13 @@ namespace Safe.PL.ViewModel
             set { _AddCredentialCmd = value; }
         }
 
+        
+        void Notify(String propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }

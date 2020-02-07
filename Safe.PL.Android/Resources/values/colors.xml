@@ -3,8 +3,7 @@
   <color name="launcher_background">#FFFFFF</color>
   <color name="colorPrimary">#ffa500</color>
   <color name="colorPrimaryDark">#FFFF8C00</color>
-  <color name="colorAccent">#1976D2</color>
-  <color name="splash_background">#FFFF11</color>
+  <color name="colorAccent">#FFFF8C00</color>
+  <color name="splash_background">#FFFFFF</color>
   <color name="action_mode_color">#FFFFFF</color>
-  
 </resources>

@@ -4,12 +4,15 @@ using Safe.PL.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Text;
 
 namespace Safe.PL.ViewModel
 {
-    public class NotesVM
+    public class NotesVM : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private DeleteNoteCommand _DeleteNoteCmd;
 
         private EditNoteCommand _EditNoteCmd;
@@ -26,7 +29,11 @@ namespace Safe.PL.ViewModel
         public ObservableCollection<Note> Notes
         {
             get { return _Notes; }
-            set { _Notes = value; }
+            set
+            {
+                _Notes = value;
+                Notify("Notes");
+            }
         }
 
 
@@ -41,5 +48,14 @@ namespace Safe.PL.ViewModel
             get { return _EditNoteCmd; }
             set { _EditNoteCmd = value; }
         }
+
+        void Notify(String propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
     }
 }

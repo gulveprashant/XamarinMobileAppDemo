@@ -10,17 +10,16 @@
         <ToolbarItem x:Name="saveNoteButton" Text="Save" IconImageSource="save.png" Clicked="SaveNoteButton_Clicked"/>
     </ContentPage.ToolbarItems>
     <StackLayout Margin="10" Spacing="20">
-        <Label Text="Add Note" FontSize="Title" HorizontalTextAlignment="Center"/>
+        <Label x:Name="lblPageHeading" x:FieldModifier="public" Text="Add Note" FontSize="Title" HorizontalTextAlignment="Center"/>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <localCtrls:FloatingLabelEntry x:Name="titleEntry" Grid.Row="0" LabelText="Title" Text="{Binding Title}"
-                                           LabelColor="OrangeRed" EntryTextColor="Orange"/>
+            <localCtrls:FloatingLabelEntry x:Name="titleEntry" Grid.Row="0" LabelText="Title" Text="{Binding Title}"/>
             
             <localCtrls:FloatingLabelEntry x:Name="noteEntry" Grid.Row="1" LabelText="Enter the note here ... " 
-                    Text="{Binding NoteText}" IsMultiline="True" LabelColor="OrangeRed" EntryTextColor="Orange"/>
+                    Text="{Binding NoteText}" IsMultiline="True"/>
        </Grid>
     </StackLayout>
     

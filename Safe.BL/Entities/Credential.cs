@@ -13,8 +13,6 @@ namespace Safe.BL.Entities
 
         private int _Id;
 
-        private String _CredentialType;
-
         private string _Title;
 
         private string _Username;
@@ -82,18 +80,6 @@ namespace Safe.BL.Entities
             }
         }
 
-
-        
-        public String CredentialType
-        {
-            get { return _CredentialType; }
-            set
-            {
-                _CredentialType = value;
-                NotifyPropertyChanged("CredentialType");
-            }
-        }
-
         private String _HintRemark;
 
         public String HintRemark
@@ -120,7 +106,6 @@ namespace Safe.BL.Entities
         {
             Credential cloneObj = new Credential();
 
-            cloneObj.CredentialType = this.CredentialType;
             cloneObj.Id = this.Id;
             cloneObj.LastModifiedTime = this.LastModifiedTime;
             cloneObj.Username = this.Username;

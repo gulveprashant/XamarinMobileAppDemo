@@ -15,11 +15,16 @@ namespace Safe.PL.ViewModel.Commands
             return true;
         }
 
-        public void Execute(object parameter)
+        public async void Execute(object parameter)
         {
             Note note = parameter as Note;
 
-            Main.Instance.DeleteNote(note);
+            bool userConfirmation = await App.Current.MainPage.DisplayAlert("Delete Note !", "Are you sure ?", "Yes", "No");
+
+            if (userConfirmation)
+            {
+                await Main.Instance.DeleteNote(note);
+            }
         }
     }
 }

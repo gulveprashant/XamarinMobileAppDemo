@@ -12,7 +12,8 @@
 
     <Entry x:Name="entInputArea" Margin="0" Text="{Binding Text,Mode=TwoWay}" Placeholder="{Binding LabelText}"
            TextColor="{Binding EntryTextColor}" PlaceholderColor="{Binding LabelColor}" 
-           IsPassword="{Binding IsPassword}" MaxLength="{Binding MaxLength}" >
+           IsPassword="{Binding IsPassword}" MaxLength="{Binding MaxLength}" IsReadOnly="{Binding IsReadOnly}" 
+           ClearButtonVisibility="Never">
         <Entry.Triggers>
             <DataTrigger TargetType="Entry" Binding="{Binding IsMultiline}" Value="True">
                 <Setter Property="IsVisible" Value="False"/>
@@ -22,7 +23,7 @@
 
     <Editor x:Name="edtInputArea" Margin="0" Text="{Binding Text,Mode=TwoWay}" Placeholder="{Binding LabelText}"
             TextColor="{Binding EntryTextColor}" PlaceholderColor="{Binding LabelColor}"
-            AutoSize="TextChanges" IsVisible="False" MaxLength="{Binding MaxLength}">
+            AutoSize="TextChanges" IsVisible="False" MaxLength="{Binding MaxLength}" IsReadOnly="{Binding IsReadOnly}">
         <Editor.Triggers>
             <DataTrigger TargetType="Editor" Binding="{Binding IsMultiline}" Value="True">
                 <Setter Property="IsVisible" Value="True"/>

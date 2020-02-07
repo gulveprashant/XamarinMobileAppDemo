@@ -25,7 +25,7 @@ namespace Safe.PL
                 MasterBehavior = MasterBehavior.Popover;
             }
         }
-
+        
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as MainMenuItem;

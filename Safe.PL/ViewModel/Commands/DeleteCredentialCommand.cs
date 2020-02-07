@@ -16,11 +16,16 @@ namespace Safe.PL.ViewModel.Commands
             return true;
         }
 
-        public void Execute(object parameter)
+        public async void Execute(object parameter)
         {
             Credential credential = parameter as Credential;
 
-            Main.Instance.DeleteCredential(credential);
+            bool userConfirmation = await App.Current.MainPage.DisplayAlert("Delete Credential !", "Are you sure ?", "Yes", "No");
+
+            if (userConfirmation)
+            {
+                await Main.Instance.DeleteCredential(credential);
+            }
         }
     }
 }

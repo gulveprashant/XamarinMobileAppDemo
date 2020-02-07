@@ -146,6 +146,65 @@ namespace Safe.PL.ViewModel
             }
         }
 
+        public void SortNotes(string criteria)
+        {
+            switch(criteria)
+            {
+                case "Title":
+                    {
+                        var sortedList = Notes.OrderBy(note => note.Title);
+                        Notes = new ObservableCollection<Note>(sortedList);
+                    }
+                    break;
+                case "DateModified":
+                    {
+                        var sortedList = Notes.OrderByDescending(note => note.LastModifiedTime);
+                        Notes = new ObservableCollection<Note>(sortedList);
+                    }
+                    break;
+
+            }
+        }
+
+        public void SortCredentials(string criteria)
+        {
+            switch (criteria)
+            {
+                case "Title":
+                    {
+                        var sortedList = Credentials.OrderBy(cred => cred.Title);
+                        Credentials = new ObservableCollection<Credential>(sortedList);
+                    }
+                    break;
+                case "DateModified":
+                    {
+                        var sortedList = Credentials.OrderByDescending(cred => cred.LastModifiedTime);
+                        Credentials = new ObservableCollection<Credential>(sortedList);
+                    }
+                    break;
+
+            }
+        }
+
+        public async Task<bool> DeleteAll()
+        {
+            bool isDeleteCredSuccessful =  await DatabaseManager.Instance.DeleteAllCredential();
+
+            if(isDeleteCredSuccessful)
+            {
+                Credentials.Clear();
+            }
+
+            bool isDeleteNotesSuccessful = await DatabaseManager.Instance.DeleteAllNotes();
+
+            if (isDeleteNotesSuccessful)
+            {
+                Notes.Clear();
+            }
+
+            return (isDeleteCredSuccessful && isDeleteNotesSuccessful);
+        }
+
         void Notify(String propertyName)
         {
             if(PropertyChanged != null)

@@ -4,24 +4,27 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:controls="clr-namespace:Safe.PL.Controls"
              x:Class="Safe.PL.SettingsPage">
-    <StackLayout Margin="10">
-        <StackLayout x:Name="contactUsGroup">
-            <StackLayout Orientation="Horizontal">
+    <StackLayout Margin="10" Spacing="20">
+        <StackLayout x:Name="contactUsGroup" Spacing="0" Margin="0">
+            <StackLayout Orientation="Horizontal" Spacing="20" Margin="0">
                 <Image Source="contact.png"/>
                 <Label Text="Contact Us" Style="{StaticResource headingLabelStyle}" VerticalOptions="Center"/>
             </StackLayout>
-            
-            <Button x:Name="contactButton" Text="gulveprashant@gmail.com" Style="{StaticResource plainButtonStyle}" Clicked="ContactButton_Clicked"/>
+
+            <controls:CustomButton x:Name="contactButton" Text="gulveprashant@gmail.com" Style="{StaticResource plainButtonStyle}"
+                                   Clicked="ContactButton_Clicked"/>
         </StackLayout>
 
-        <StackLayout >
-            <StackLayout Orientation="Horizontal">
+        <StackLayout Spacing="0" Margin="0">
+            <StackLayout Orientation="Horizontal" Spacing="20" Margin="0">
                 <Image Source="delete_all.png"/>
                 <Label Text="Delete Credentials" Style="{StaticResource headingLabelStyle}" VerticalOptions="Center"/>
             </StackLayout>
-            
-            <Button Text="Clear All Data" Style="{StaticResource plainButtonStyle}"/>
+
+            <controls:CustomButton x:Name="deleteAllButton" Text="Clear All Data" Style="{StaticResource plainButtonStyle}"
+                                   Clicked="deleteAllButton_Clicked"/>
         </StackLayout>
 
         

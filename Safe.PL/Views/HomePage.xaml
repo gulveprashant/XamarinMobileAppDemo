@@ -8,7 +8,7 @@
              mc:Ignorable="d"
              x:Class="Safe.PL.Views.HomePage">
     <ContentPage.Content>
-        <Grid Margin="20">
+        <Grid Margin="15">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -19,12 +19,12 @@
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
 
-            <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="0"
+            <Label HorizontalOptions="Start" VerticalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="2" FontSize="Title"
                            Text="Welcome to your SAFE !"/>
 
-            <CV:CustomButton x:Name="notesBtn" Margin="10" Grid.Row="1" Grid.Column="0" Clicked="notesBtn_Clicked"/>
+            <CV:CustomButton x:Name="notesBtn" Margin="5" Grid.Row="1" Grid.Column="0" Clicked="notesBtn_Clicked" HorizontalOptions="Fill"/>
 
-            <CV:CustomButton x:Name="credBtn" Margin="10" Grid.Row="1" Grid.Column="1" Clicked="credBtn_Clicked"/>
+            <CV:CustomButton x:Name="credBtn" Margin="5" Grid.Row="1" Grid.Column="1" Clicked="credBtn_Clicked" HorizontalOptions="Fill"/>
 
             
         </Grid>

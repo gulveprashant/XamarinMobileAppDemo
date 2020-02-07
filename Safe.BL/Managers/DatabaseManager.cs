@@ -117,6 +117,57 @@ namespace Safe.BL.Managers
             return isDeleted;
         }
 
+
+        public async Task<bool> DeleteAllCredential()
+        {
+            bool isDeleted = false;
+            Connect();
+
+            if (_DbConnection != null)
+            {
+                try
+                {
+                    await _DbConnection.DeleteAllAsync<Credential>();
+                    int x = await _DbConnection.Table<Credential>().CountAsync();
+                    isDeleted = (x == 0);
+                }
+                catch (Exception)
+                {
+                }
+                finally
+                {
+                    Disconnect();
+                }
+            }
+
+            return isDeleted;
+        }
+
+        public async Task<bool> DeleteAllNotes()
+        {
+            bool isDeleted = false;
+            Connect();
+
+            if (_DbConnection != null)
+            {
+                try
+                {
+                    await _DbConnection.DeleteAllAsync<Note>();
+                    int x = await _DbConnection.Table<Note>().CountAsync();
+                    isDeleted = (x == 0);
+                }
+                catch (Exception)
+                {
+                }
+                finally
+                {
+                    Disconnect();
+                }
+            }
+
+            return isDeleted;
+        }
+
         public async Task<bool> DeleteNote(Note note)
         {
             bool isDeleted = false;

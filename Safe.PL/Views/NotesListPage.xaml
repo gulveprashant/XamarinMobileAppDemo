@@ -11,7 +11,9 @@
     </ContentPage.Resources>
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="addNoteButton" Text="Add" IconImageSource="add.png" Clicked="AddNoteButton_Clicked"/>
+        <ToolbarItem x:Name="addNoteButton" Order="Primary" Text="Add" IconImageSource="add.png" Clicked="AddNoteButton_Clicked"/>
+        <ToolbarItem x:Name="sortByTitleBtn" Order="Secondary" Text="Sort by Title" Clicked="sortByTitleBtn_Clicked"/>
+        <ToolbarItem x:Name="sortByDateModifiedBtn" Order="Secondary" Text="Sort by Date Modified" Clicked="sortByDateModifiedBtn_Clicked"/>
     </ContentPage.ToolbarItems>
 
     <StackLayout VerticalOptions="Start">
@@ -19,12 +21,15 @@
             <Image Source="notes.png"/>
             <Label Text="Notes" FontSize="Title" HorizontalTextAlignment="Center"/>
         </StackLayout>
+
+        <SearchBar x:Name="btnSearch" TextChanged="btnSearch_TextChanged" TextColor="OrangeRed"/>
         
         <ListView x:Name="notesListView" ItemsSource="{Binding Notes}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Title}" 
-                              Detail="{Binding LastModifiedTime, Converter={StaticResource timeConvertor}}">
+                    <TextCell Text="{Binding Title}" TextColor="OrangeRed" DetailColor="Orange"
+                              Detail="{Binding LastModifiedTime, Converter={StaticResource timeConvertor}}"
+                              Tapped="ListItem_Tapped">
                         <TextCell.ContextActions>
                             <MenuItem Text="Edit" IconImageSource="edit.png" Command="{Binding Path=BindingContext.EditNoteCmd,
                                 Source={x:Reference notesListView}}" CommandParameter="{Binding}"/>

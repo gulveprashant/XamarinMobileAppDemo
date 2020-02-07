@@ -21,16 +21,19 @@ namespace Safe.PL.Controls
                 defaultBindingMode: BindingMode.TwoWay);
 
         public static readonly BindableProperty LabelColorProperty =
-            BindableProperty.Create(nameof(LabelColor), typeof(Color), typeof(FloatingLabelEntry), Color.Black);
+            BindableProperty.Create(nameof(LabelColor), typeof(Color), typeof(FloatingLabelEntry), Color.OrangeRed);
 
         public static readonly BindableProperty EntryTextColorProperty =
-            BindableProperty.Create(nameof(EntryTextColor), typeof(Color), typeof(FloatingLabelEntry), Color.Gray);
+            BindableProperty.Create(nameof(EntryTextColor), typeof(Color), typeof(FloatingLabelEntry), Color.Orange);
 
         public static readonly BindableProperty IsPasswordProperty =
             BindableProperty.Create(nameof(IsPassword), typeof(Boolean), typeof(FloatingLabelEntry), false);
 
         public static readonly BindableProperty IsMultilineProperty =
             BindableProperty.Create(nameof(IsMultiline), typeof(Boolean), typeof(FloatingLabelEntry), false);
+
+        public static readonly BindableProperty IsReadOnlyProperty =
+            BindableProperty.Create(nameof(IsReadOnly), typeof(Boolean), typeof(FloatingLabelEntry), false);
 
         public static readonly BindableProperty MaxLengthProperty =
             BindableProperty.Create(nameof(MaxLength), typeof(UInt32), typeof(FloatingLabelEntry), (UInt32)250);
@@ -72,6 +75,12 @@ namespace Safe.PL.Controls
         {
             get { return (Boolean)base.GetValue(IsMultilineProperty); }
             set { base.SetValue(IsMultilineProperty, value); }
+        }
+
+        public Boolean IsReadOnly
+        {
+            get { return (Boolean)base.GetValue(IsReadOnlyProperty); }
+            set { base.SetValue(IsReadOnlyProperty, value); }
         }
 
         public UInt32 MaxLength
