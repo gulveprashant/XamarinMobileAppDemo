@@ -4,7 +4,9 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:converter="clr-namespace:Safe.PL.ViewModel.Convertors"
+             xmlns:VM="clr-namespace:Safe.PL.ViewModel"
              mc:Ignorable="d"
+             Title="Notes" IconImageSource="notes.png"
              x:Class="Safe.PL.NotesListPage">
     <ContentPage.Resources>
         <converter:ElapsedTimeToStringConvertor x:Key="timeConvertor"/>
@@ -12,17 +14,12 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="addNoteButton" Order="Primary" Text="Add" IconImageSource="add.png" Clicked="AddNoteButton_Clicked"/>
-        <ToolbarItem x:Name="sortByTitleBtn" Order="Secondary" Text="Sort by Title" Clicked="sortByTitleBtn_Clicked"/>
-        <ToolbarItem x:Name="sortByDateModifiedBtn" Order="Secondary" Text="Sort by Date Modified" Clicked="sortByDateModifiedBtn_Clicked"/>
+        <ToolbarItem x:Name="sortBtn" Order="Secondary" Text="Sort" Clicked="sortBtn_Clicked"/>
     </ContentPage.ToolbarItems>
 
     <StackLayout VerticalOptions="Start">
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
-            <Image Source="notes.png"/>
-            <Label Text="Notes" FontSize="Title" HorizontalTextAlignment="Center"/>
-        </StackLayout>
-
-        <SearchBar x:Name="btnSearch" TextChanged="btnSearch_TextChanged" TextColor="OrangeRed"/>
+        <SearchBar x:Name="btnSearch" TextChanged="btnSearch_TextChanged" TextColor="OrangeRed"
+                   IsVisible="{Binding Source={x:Static VM:Main.Instance}, Path=Notes.Count}"/>
         
         <ListView x:Name="notesListView" ItemsSource="{Binding Notes}">
             <ListView.ItemTemplate>
@@ -48,7 +45,7 @@
             </ListView.Triggers>
         </ListView>
 
-        <Label Text="You have no notes saved yet !" IsVisible="False" Margin="20">
+        <Label Text="We have no notes to show !" IsVisible="False" Margin="20">
             <Label.Triggers>
                 <DataTrigger TargetType="Label" Binding="{Binding Notes.Count}" Value="0">
                     <Setter Property="IsVisible" Value="True"/>

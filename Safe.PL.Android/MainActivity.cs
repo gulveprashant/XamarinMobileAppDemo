@@ -29,5 +29,7 @@ namespace Safe.PL.Droid
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+
+        
     }
 }

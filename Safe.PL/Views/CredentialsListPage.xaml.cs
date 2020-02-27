@@ -19,6 +19,8 @@ namespace Safe.PL
     {
         private CredentialsVM _ViewModel;
 
+        static String[] SORTING_OPTIONS = new String[2] { "Title", "Date Modified"};
+
         public CredentialsListPage()
         {
             InitializeComponent();
@@ -26,6 +28,16 @@ namespace Safe.PL
             _ViewModel = new CredentialsVM();
 
             this.BindingContext = _ViewModel;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            //if (Main.Instance.Credentials.Count > 0)
+            //{
+            //    btnSearch.IsVisible = true;
+            //}
         }
 
         private void CredentialAddButton_Clicked(object sender, EventArgs e)
@@ -68,18 +80,15 @@ namespace Safe.PL
             }
         }
 
-        private void sortByTitleBtn_Clicked(object sender, EventArgs e)
+        private async void sortBtn_Clicked(object sender, EventArgs e)
         {
-            Main.Instance.SortCredentials("Title");
+            String selection = await DisplayActionSheet("Sort by", "Cancel", "", SORTING_OPTIONS);
+
+            Main.Instance.SortCredentials(selection);
 
             _ViewModel.Credentials = Main.Instance.Credentials;
-        }
 
-        private void sortByDateModifiedBtn_Clicked(object sender, EventArgs e)
-        {
-            Main.Instance.SortCredentials("DateModified");
-
-            _ViewModel.Credentials = Main.Instance.Credentials;
         }
+        
     }
 }

@@ -26,13 +26,13 @@ namespace Safe.PL
             this.BindingContext = _ViewModel;
         }
 
-
         private void AddNoteButton_Clicked(object sender, EventArgs e)
         {
             Note note = new Note();
             Navigation.PushAsync(new NewNoteFormPage(note, false));
         }
 
+   
         private void ListItem_Tapped(object sender, EventArgs e)
         {
             TextCell cell = sender as TextCell;
@@ -66,16 +66,11 @@ namespace Safe.PL
             }
         }
 
-        private void sortByTitleBtn_Clicked(object sender, EventArgs e)
+        private async void sortBtn_Clicked(object sender, EventArgs e)
         {
-            Main.Instance.SortNotes("Title");
+            String selection = await DisplayActionSheet("Sort by", "Cancel", "", new String[2] { "Title", "Date Modified" });
 
-            _ViewModel.Notes = Main.Instance.Notes;
-        }
-
-        private void sortByDateModifiedBtn_Clicked(object sender, EventArgs e)
-        {
-            Main.Instance.SortNotes("DateModified");
+            Main.Instance.SortNotes(selection);
 
             _ViewModel.Notes = Main.Instance.Notes;
         }

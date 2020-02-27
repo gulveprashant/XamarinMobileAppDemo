@@ -38,6 +38,9 @@ namespace Safe.PL.Controls
         public static readonly BindableProperty MaxLengthProperty =
             BindableProperty.Create(nameof(MaxLength), typeof(UInt32), typeof(FloatingLabelEntry), (UInt32)250);
 
+        public static readonly BindableProperty KeyboardTypeProperty =
+            BindableProperty.Create(nameof(KeyboardType), typeof(Keyboard), typeof(FloatingLabelEntry), Keyboard.Default);
+
         public string LabelText
         {
             get { return (string)base.GetValue(LabelTextProperty); }
@@ -87,6 +90,12 @@ namespace Safe.PL.Controls
         {
             get { return (UInt32)base.GetValue(MaxLengthProperty); }
             set { base.SetValue(MaxLengthProperty, value); }
+        }
+
+        public Keyboard KeyboardType
+        {
+            get { return (Keyboard)base.GetValue(KeyboardTypeProperty); }
+            set { base.SetValue(KeyboardTypeProperty, value); }
         }
 
         public FloatingLabelEntry()

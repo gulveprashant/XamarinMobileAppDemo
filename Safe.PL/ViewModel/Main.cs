@@ -156,7 +156,7 @@ namespace Safe.PL.ViewModel
                         Notes = new ObservableCollection<Note>(sortedList);
                     }
                     break;
-                case "DateModified":
+                case "Date Modified":
                     {
                         var sortedList = Notes.OrderByDescending(note => note.LastModifiedTime);
                         Notes = new ObservableCollection<Note>(sortedList);
@@ -176,7 +176,7 @@ namespace Safe.PL.ViewModel
                         Credentials = new ObservableCollection<Credential>(sortedList);
                     }
                     break;
-                case "DateModified":
+                case "Date Modified":
                     {
                         var sortedList = Credentials.OrderByDescending(cred => cred.LastModifiedTime);
                         Credentials = new ObservableCollection<Credential>(sortedList);
