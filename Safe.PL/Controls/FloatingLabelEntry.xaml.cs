@@ -41,6 +41,9 @@ namespace Safe.PL.Controls
         public static readonly BindableProperty KeyboardTypeProperty =
             BindableProperty.Create(nameof(KeyboardType), typeof(Keyboard), typeof(FloatingLabelEntry), Keyboard.Default);
 
+        public static readonly BindableProperty ShowCopyIconProperty =
+            BindableProperty.Create(nameof(ShowCopyIcon), typeof(Boolean), typeof(FloatingLabelEntry), false);
+
         public string LabelText
         {
             get { return (string)base.GetValue(LabelTextProperty); }
@@ -72,6 +75,12 @@ namespace Safe.PL.Controls
         {
             get { return (Boolean)base.GetValue(IsPasswordProperty); }
             set { base.SetValue(IsPasswordProperty, value); }
+        }
+
+        public Boolean ShowCopyIcon
+        {
+            get { return (Boolean)base.GetValue(ShowCopyIconProperty); }
+            set { base.SetValue(ShowCopyIconProperty, value); }
         }
 
         public Boolean IsMultiline
@@ -152,6 +161,15 @@ namespace Safe.PL.Controls
             entInputArea.BindingContext = this;
             lblLabelText.BindingContext = this;
             edtInputArea.BindingContext = this;
+        }
+        
+        private void CopyEntryText_Tapped(object sender, EventArgs e)
+        {
+            if (userEntry.Text is String && userEntry.Text.Length != 0)
+            {
+                Xamarin.Essentials.Clipboard.SetTextAsync(userEntry.Text);
+                
+            }
         }
     }
 }

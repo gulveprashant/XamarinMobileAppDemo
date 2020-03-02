@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Plugin.Fingerprint;
 
 namespace Safe.PL.Droid
 {
@@ -16,6 +17,8 @@ namespace Safe.PL.Droid
         {
             //TabLayoutResource = Resource.Layout.Tabbar;
             //ToolbarResource = Resource.Layout.Toolbar;
+
+            CrossFingerprint.SetCurrentActivityResolver(() => this);
 
             base.OnCreate(savedInstanceState);
 

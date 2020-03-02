@@ -55,7 +55,8 @@ namespace Safe.PL
                 Credential credential = cell.BindingContext as Credential;
                 if (credential != null)
                 {
-                    NewCredentialFormPage viewCredPage = new NewCredentialFormPage(credential, true);
+                    Credential credCopy = credential.Clone() as Credential;
+                    NewCredentialFormPage viewCredPage = new NewCredentialFormPage(credCopy, true);
                     viewCredPage.ToolbarItems.Clear();
                     viewCredPage.lblPageHeading.IsVisible = false;
                     Navigation.PushAsync(viewCredPage);

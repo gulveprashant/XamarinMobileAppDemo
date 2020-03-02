@@ -4,15 +4,21 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:localCtrl="clr-namespace:Safe.PL.Controls"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
              mc:Ignorable="d"
              x:Class="Safe.PL.LoginPage">
-        <StackLayout VerticalOptions="Center" Margin="20">
-        <Image Source="safe_icon"/>
-        <Label Text="SAFE" FontSize="Title" HorizontalOptions="CenterAndExpand"/>
-        
-        <localCtrl:FloatingLabelEntry x:Name="userNameEntry" LabelText="User Name" Text="username"/>
+        <StackLayout VerticalOptions="Center" Margin="20" Spacing="50">
+        <StackLayout>
+            <Image Source="safe_icon"/>
+            <Label Text="SAFE" FontSize="Title" HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+
+        <localCtrl:PinEntryControl x:Name="pinEntryCtrl" CorrectPin="1234" AllowFingerprintAuth="True"
+                                   NotifyMajorPinEvent="pinEntryCtrl_NotifyMajorPinEvent"/>
+
+        <!--<localCtrl:FloatingLabelEntry x:Name="userNameEntry" LabelText="User Name" Text="username"/>
         <localCtrl:FloatingLabelEntry x:Name="passwordEntry" LabelText="Password" IsPassword="True" Text="password"/>
         <localCtrl:CustomButton x:Name="loginButton" Text="Log In" Clicked="LoginButton_Clicked"/>
-            <Label x:Name="loginStatusLabel" Text="" TextColor="Red"/>
+            <Label x:Name="loginStatusLabel" Text="" TextColor="Red"/>-->
         </StackLayout>
 </ContentPage>

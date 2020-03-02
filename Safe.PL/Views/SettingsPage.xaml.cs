@@ -16,6 +16,8 @@ namespace Safe.PL
         public SettingsPage()
         {
             InitializeComponent();
+
+            lblVersionNum.Text = VersionTracking.CurrentVersion;
         }
 
         private async void ContactButton_Clicked(object sender, EventArgs e)

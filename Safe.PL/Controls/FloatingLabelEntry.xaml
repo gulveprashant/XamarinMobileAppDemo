@@ -3,32 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:conv="clr-namespace:Safe.PL.Convertors"
              mc:Ignorable="d"
              BindingContextChanged="FLE_BindingContextChanged"
              Margin="0" Padding="0" BackgroundColor="{Binding BackgroundColor}" Spacing="0"
              x:Class="Safe.PL.Controls.FloatingLabelEntry">
+    <StackLayout.Resources>
+        <conv:InvertBoolValueConvertor x:Key="booleanInvertConvertor"></conv:InvertBoolValueConvertor>
+    </StackLayout.Resources>
+    
     <Label x:Name="lblLabelText" Margin="0" Text="{Binding LabelText}" TextColor="{Binding LabelColor}" 
                  FontSize="Small" VerticalTextAlignment="End" />
 
-    <Entry x:Name="entInputArea" Margin="0" Text="{Binding Text,Mode=TwoWay}" Placeholder="{Binding LabelText}"
+    <Grid x:Name="entInputArea" Margin="0" IsVisible="{Binding IsMultiline, Converter={StaticResource booleanInvertConvertor}}">
+
+        <Entry x:Name="userEntry" Margin="0" Text="{Binding Text,Mode=TwoWay}" Placeholder="{Binding LabelText}"
            TextColor="{Binding EntryTextColor}" PlaceholderColor="{Binding LabelColor}" 
            IsPassword="{Binding IsPassword}" MaxLength="{Binding MaxLength}" IsReadOnly="{Binding IsReadOnly}" 
-           ClearButtonVisibility="Never">
-        <Entry.Triggers>
-            <DataTrigger TargetType="Entry" Binding="{Binding IsMultiline}" Value="True">
-                <Setter Property="IsVisible" Value="False"/>
-            </DataTrigger>
-        </Entry.Triggers>
-    </Entry>
+           ClearButtonVisibility="Never" />
+
+        <Image HorizontalOptions="EndAndExpand" Source="copy.png" Aspect="AspectFit" IsVisible="{Binding ShowCopyIcon}">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="CopyEntryText_Tapped"/>
+            </Image.GestureRecognizers>
+        </Image>
+    </Grid>
 
     <Editor x:Name="edtInputArea" Margin="0" Text="{Binding Text,Mode=TwoWay}" Placeholder="{Binding LabelText}"
             TextColor="{Binding EntryTextColor}" PlaceholderColor="{Binding LabelColor}"
-            AutoSize="TextChanges" IsVisible="False" MaxLength="{Binding MaxLength}" IsReadOnly="{Binding IsReadOnly}">
-        <Editor.Triggers>
-            <DataTrigger TargetType="Editor" Binding="{Binding IsMultiline}" Value="True">
-                <Setter Property="IsVisible" Value="True"/>
-            </DataTrigger>
-        </Editor.Triggers>
-    </Editor>
+            AutoSize="TextChanges" IsVisible="{Binding IsMultiline}" MaxLength="{Binding MaxLength}" IsReadOnly="{Binding IsReadOnly}"/>
 
 </StackLayout>

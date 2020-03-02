@@ -41,7 +41,8 @@ namespace Safe.PL
                 Note note = cell.BindingContext as Note;
                 if (note != null)
                 {
-                    NewNoteFormPage viewNotePage = new NewNoteFormPage(note, true);
+                    Note noteCopy = note.Clone() as Note;
+                    NewNoteFormPage viewNotePage = new NewNoteFormPage(noteCopy, true);
                     viewNotePage.ToolbarItems.Clear();
                     viewNotePage.lblPageHeading.IsVisible = false;
                     Navigation.PushAsync(viewNotePage);

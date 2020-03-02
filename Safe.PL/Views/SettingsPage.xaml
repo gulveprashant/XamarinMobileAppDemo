@@ -8,24 +8,56 @@
              xmlns:controls="clr-namespace:Safe.PL.Controls"
              x:Class="Safe.PL.SettingsPage">
     <StackLayout Margin="10" Spacing="20">
+
+        <StackLayout x:Name="versionInfo" Spacing="0" Margin="0">
+            <StackLayout Orientation="Horizontal" Spacing="20" Margin="0">
+                <Image Source="version.png"/>
+
+                <Label Text="Safe version " Style="{StaticResource headingLabelStyle}" VerticalOptions="Center"/>
+
+                <Label x:Name="lblVersionNum" Style="{StaticResource headingLabelStyle}" VerticalOptions="Center"/>
+                
+            </StackLayout>
+
+        </StackLayout>
+
+        <StackLayout x:Name="loginOption" Spacing="0" Margin="0">
+            <StackLayout Orientation="Horizontal" Spacing="20" Margin="0">
+                <Image Source="credentials.png"/>
+                
+                <Label Text="Login method" Style="{StaticResource headingLabelStyle}" VerticalOptions="Center"/>
+
+                <Picker x:Name="loginOptionPicker" SelectedIndex="0" HorizontalOptions="FillAndExpand" >
+                    <Picker.Items>
+                        <x:String>No login</x:String>
+                        <x:String>6 digit PIN</x:String>
+                        <x:String>Fingerprint</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+            
+        </StackLayout>
+        
         <StackLayout x:Name="contactUsGroup" Spacing="0" Margin="0">
             <StackLayout Orientation="Horizontal" Spacing="20" Margin="0">
                 <Image Source="contact.png"/>
                 <Label Text="Contact Us" Style="{StaticResource headingLabelStyle}" VerticalOptions="Center"/>
+                <controls:CustomButton x:Name="contactButton" Text="Contact support email" Style="{StaticResource plainButtonStyle}"
+                                   Clicked="ContactButton_Clicked" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
             </StackLayout>
 
-            <controls:CustomButton x:Name="contactButton" Text="gulveprashant@gmail.com" Style="{StaticResource plainButtonStyle}"
-                                   Clicked="ContactButton_Clicked"/>
+            
         </StackLayout>
 
         <StackLayout Spacing="0" Margin="0">
             <StackLayout Orientation="Horizontal" Spacing="20" Margin="0">
                 <Image Source="delete_all.png"/>
-                <Label Text="Delete Credentials" Style="{StaticResource headingLabelStyle}" VerticalOptions="Center"/>
+                <Label Text="Delete Credentials and Notes" Style="{StaticResource headingLabelStyle}" VerticalOptions="Center"/>
+                <controls:CustomButton x:Name="deleteAllButton" Text="Clear All Data" Style="{StaticResource plainButtonStyle}"
+                                   Clicked="deleteAllButton_Clicked" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
             </StackLayout>
 
-            <controls:CustomButton x:Name="deleteAllButton" Text="Clear All Data" Style="{StaticResource plainButtonStyle}"
-                                   Clicked="deleteAllButton_Clicked"/>
+            
         </StackLayout>
 
         
