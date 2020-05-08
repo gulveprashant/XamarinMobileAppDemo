@@ -15,7 +15,7 @@ namespace Safe.PL.Droid
 {
 	
 	
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "1.0.0.0")]
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "1.0.0.0")]
 	public partial class Resource
 	{
 		
@@ -1742,10 +1742,6 @@ namespace Safe.PL.Droid
 			global::SkiaSharp.Views.Forms.Resource.Animation.design_bottom_sheet_slide_out = global::Safe.PL.Droid.Resource.Animation.design_bottom_sheet_slide_out;
 			global::SkiaSharp.Views.Forms.Resource.Animation.design_snackbar_in = global::Safe.PL.Droid.Resource.Animation.design_snackbar_in;
 			global::SkiaSharp.Views.Forms.Resource.Animation.design_snackbar_out = global::Safe.PL.Droid.Resource.Animation.design_snackbar_out;
-			global::SkiaSharp.Views.Forms.Resource.Animation.EnterFromLeft = global::Safe.PL.Droid.Resource.Animation.EnterFromLeft;
-			global::SkiaSharp.Views.Forms.Resource.Animation.EnterFromRight = global::Safe.PL.Droid.Resource.Animation.EnterFromRight;
-			global::SkiaSharp.Views.Forms.Resource.Animation.ExitToLeft = global::Safe.PL.Droid.Resource.Animation.ExitToLeft;
-			global::SkiaSharp.Views.Forms.Resource.Animation.ExitToRight = global::Safe.PL.Droid.Resource.Animation.ExitToRight;
 			global::SkiaSharp.Views.Forms.Resource.Animator.design_appbar_state_list_animator = global::Safe.PL.Droid.Resource.Animator.design_appbar_state_list_animator;
 			global::SkiaSharp.Views.Forms.Resource.Animator.design_fab_hide_motion_spec = global::Safe.PL.Droid.Resource.Animator.design_fab_hide_motion_spec;
 			global::SkiaSharp.Views.Forms.Resource.Animator.design_fab_show_motion_spec = global::Safe.PL.Droid.Resource.Animator.design_fab_show_motion_spec;
@@ -2952,7 +2948,6 @@ namespace Safe.PL.Droid
 			global::SkiaSharp.Views.Forms.Resource.Layout.abc_search_view = global::Safe.PL.Droid.Resource.Layout.abc_search_view;
 			global::SkiaSharp.Views.Forms.Resource.Layout.abc_select_dialog_material = global::Safe.PL.Droid.Resource.Layout.abc_select_dialog_material;
 			global::SkiaSharp.Views.Forms.Resource.Layout.abc_tooltip = global::Safe.PL.Droid.Resource.Layout.abc_tooltip;
-			global::SkiaSharp.Views.Forms.Resource.Layout.BottomTabLayout = global::Safe.PL.Droid.Resource.Layout.BottomTabLayout;
 			global::SkiaSharp.Views.Forms.Resource.Layout.browser_actions_context_menu_page = global::Safe.PL.Droid.Resource.Layout.browser_actions_context_menu_page;
 			global::SkiaSharp.Views.Forms.Resource.Layout.browser_actions_context_menu_row = global::Safe.PL.Droid.Resource.Layout.browser_actions_context_menu_row;
 			global::SkiaSharp.Views.Forms.Resource.Layout.design_bottom_navigation_item = global::Safe.PL.Droid.Resource.Layout.design_bottom_navigation_item;
@@ -2969,7 +2964,6 @@ namespace Safe.PL.Droid
 			global::SkiaSharp.Views.Forms.Resource.Layout.design_navigation_menu = global::Safe.PL.Droid.Resource.Layout.design_navigation_menu;
 			global::SkiaSharp.Views.Forms.Resource.Layout.design_navigation_menu_item = global::Safe.PL.Droid.Resource.Layout.design_navigation_menu_item;
 			global::SkiaSharp.Views.Forms.Resource.Layout.design_text_input_password_icon = global::Safe.PL.Droid.Resource.Layout.design_text_input_password_icon;
-			global::SkiaSharp.Views.Forms.Resource.Layout.FlyoutContent = global::Safe.PL.Droid.Resource.Layout.FlyoutContent;
 			global::SkiaSharp.Views.Forms.Resource.Layout.mtrl_layout_snackbar = global::Safe.PL.Droid.Resource.Layout.mtrl_layout_snackbar;
 			global::SkiaSharp.Views.Forms.Resource.Layout.mtrl_layout_snackbar_include = global::Safe.PL.Droid.Resource.Layout.mtrl_layout_snackbar_include;
 			global::SkiaSharp.Views.Forms.Resource.Layout.notification_action = global::Safe.PL.Droid.Resource.Layout.notification_action;
@@ -2987,11 +2981,9 @@ namespace Safe.PL.Droid
 			global::SkiaSharp.Views.Forms.Resource.Layout.notification_template_media_custom = global::Safe.PL.Droid.Resource.Layout.notification_template_media_custom;
 			global::SkiaSharp.Views.Forms.Resource.Layout.notification_template_part_chronometer = global::Safe.PL.Droid.Resource.Layout.notification_template_part_chronometer;
 			global::SkiaSharp.Views.Forms.Resource.Layout.notification_template_part_time = global::Safe.PL.Droid.Resource.Layout.notification_template_part_time;
-			global::SkiaSharp.Views.Forms.Resource.Layout.RootLayout = global::Safe.PL.Droid.Resource.Layout.RootLayout;
 			global::SkiaSharp.Views.Forms.Resource.Layout.select_dialog_item_material = global::Safe.PL.Droid.Resource.Layout.select_dialog_item_material;
 			global::SkiaSharp.Views.Forms.Resource.Layout.select_dialog_multichoice_material = global::Safe.PL.Droid.Resource.Layout.select_dialog_multichoice_material;
 			global::SkiaSharp.Views.Forms.Resource.Layout.select_dialog_singlechoice_material = global::Safe.PL.Droid.Resource.Layout.select_dialog_singlechoice_material;
-			global::SkiaSharp.Views.Forms.Resource.Layout.ShellContent = global::Safe.PL.Droid.Resource.Layout.ShellContent;
 			global::SkiaSharp.Views.Forms.Resource.Layout.support_simple_spinner_dropdown_item = global::Safe.PL.Droid.Resource.Layout.support_simple_spinner_dropdown_item;
 			global::SkiaSharp.Views.Forms.Resource.String.abc_action_bar_home_description = global::Safe.PL.Droid.Resource.String.abc_action_bar_home_description;
 			global::SkiaSharp.Views.Forms.Resource.String.abc_action_bar_up_description = global::Safe.PL.Droid.Resource.String.abc_action_bar_up_description;
@@ -4485,10 +4477,6 @@ namespace Safe.PL.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.design_bottom_sheet_slide_out = global::Safe.PL.Droid.Resource.Animation.design_bottom_sheet_slide_out;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.design_snackbar_in = global::Safe.PL.Droid.Resource.Animation.design_snackbar_in;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.design_snackbar_out = global::Safe.PL.Droid.Resource.Animation.design_snackbar_out;
-			global::Xamarin.Forms.Platform.Android.Resource.Animation.EnterFromLeft = global::Safe.PL.Droid.Resource.Animation.EnterFromLeft;
-			global::Xamarin.Forms.Platform.Android.Resource.Animation.EnterFromRight = global::Safe.PL.Droid.Resource.Animation.EnterFromRight;
-			global::Xamarin.Forms.Platform.Android.Resource.Animation.ExitToLeft = global::Safe.PL.Droid.Resource.Animation.ExitToLeft;
-			global::Xamarin.Forms.Platform.Android.Resource.Animation.ExitToRight = global::Safe.PL.Droid.Resource.Animation.ExitToRight;
 			global::Xamarin.Forms.Platform.Android.Resource.Animator.design_appbar_state_list_animator = global::Safe.PL.Droid.Resource.Animator.design_appbar_state_list_animator;
 			global::Xamarin.Forms.Platform.Android.Resource.Animator.design_fab_hide_motion_spec = global::Safe.PL.Droid.Resource.Animator.design_fab_hide_motion_spec;
 			global::Xamarin.Forms.Platform.Android.Resource.Animator.design_fab_show_motion_spec = global::Safe.PL.Droid.Resource.Animator.design_fab_show_motion_spec;
@@ -5684,7 +5672,6 @@ namespace Safe.PL.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Layout.abc_search_view = global::Safe.PL.Droid.Resource.Layout.abc_search_view;
 			global::Xamarin.Forms.Platform.Android.Resource.Layout.abc_select_dialog_material = global::Safe.PL.Droid.Resource.Layout.abc_select_dialog_material;
 			global::Xamarin.Forms.Platform.Android.Resource.Layout.abc_tooltip = global::Safe.PL.Droid.Resource.Layout.abc_tooltip;
-			global::Xamarin.Forms.Platform.Android.Resource.Layout.BottomTabLayout = global::Safe.PL.Droid.Resource.Layout.BottomTabLayout;
 			global::Xamarin.Forms.Platform.Android.Resource.Layout.design_bottom_navigation_item = global::Safe.PL.Droid.Resource.Layout.design_bottom_navigation_item;
 			global::Xamarin.Forms.Platform.Android.Resource.Layout.design_bottom_sheet_dialog = global::Safe.PL.Droid.Resource.Layout.design_bottom_sheet_dialog;
 			global::Xamarin.Forms.Platform.Android.Resource.Layout.design_layout_snackbar = global::Safe.PL.Droid.Resource.Layout.design_layout_snackbar;
@@ -5699,7 +5686,6 @@ namespace Safe.PL.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Layout.design_navigation_menu = global::Safe.PL.Droid.Resource.Layout.design_navigation_menu;
 			global::Xamarin.Forms.Platform.Android.Resource.Layout.design_navigation_menu_item = global::Safe.PL.Droid.Resource.Layout.design_navigation_menu_item;
 			global::Xamarin.Forms.Platform.Android.Resource.Layout.design_text_input_password_icon = global::Safe.PL.Droid.Resource.Layout.design_text_input_password_icon;
-			global::Xamarin.Forms.Platform.Android.Resource.Layout.FlyoutContent = global::Safe.PL.Droid.Resource.Layout.FlyoutContent;
 			global::Xamarin.Forms.Platform.Android.Resource.Layout.mtrl_layout_snackbar = global::Safe.PL.Droid.Resource.Layout.mtrl_layout_snackbar;
 			global::Xamarin.Forms.Platform.Android.Resource.Layout.mtrl_layout_snackbar_include = global::Safe.PL.Droid.Resource.Layout.mtrl_layout_snackbar_include;
 			global::Xamarin.Forms.Platform.Android.Resource.Layout.notification_action = global::Safe.PL.Droid.Resource.Layout.notification_action;
@@ -5717,11 +5703,9 @@ namespace Safe.PL.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Layout.notification_template_media_custom = global::Safe.PL.Droid.Resource.Layout.notification_template_media_custom;
 			global::Xamarin.Forms.Platform.Android.Resource.Layout.notification_template_part_chronometer = global::Safe.PL.Droid.Resource.Layout.notification_template_part_chronometer;
 			global::Xamarin.Forms.Platform.Android.Resource.Layout.notification_template_part_time = global::Safe.PL.Droid.Resource.Layout.notification_template_part_time;
-			global::Xamarin.Forms.Platform.Android.Resource.Layout.RootLayout = global::Safe.PL.Droid.Resource.Layout.RootLayout;
 			global::Xamarin.Forms.Platform.Android.Resource.Layout.select_dialog_item_material = global::Safe.PL.Droid.Resource.Layout.select_dialog_item_material;
 			global::Xamarin.Forms.Platform.Android.Resource.Layout.select_dialog_multichoice_material = global::Safe.PL.Droid.Resource.Layout.select_dialog_multichoice_material;
 			global::Xamarin.Forms.Platform.Android.Resource.Layout.select_dialog_singlechoice_material = global::Safe.PL.Droid.Resource.Layout.select_dialog_singlechoice_material;
-			global::Xamarin.Forms.Platform.Android.Resource.Layout.ShellContent = global::Safe.PL.Droid.Resource.Layout.ShellContent;
 			global::Xamarin.Forms.Platform.Android.Resource.Layout.support_simple_spinner_dropdown_item = global::Safe.PL.Droid.Resource.Layout.support_simple_spinner_dropdown_item;
 			global::Xamarin.Forms.Platform.Android.Resource.String.abc_action_bar_home_description = global::Safe.PL.Droid.Resource.String.abc_action_bar_home_description;
 			global::Xamarin.Forms.Platform.Android.Resource.String.abc_action_bar_up_description = global::Safe.PL.Droid.Resource.String.abc_action_bar_up_description;
@@ -7034,10 +7018,6 @@ namespace Safe.PL.Droid
 			global::Xamarin.Forms.Platform.Resource.Animation.design_bottom_sheet_slide_out = global::Safe.PL.Droid.Resource.Animation.design_bottom_sheet_slide_out;
 			global::Xamarin.Forms.Platform.Resource.Animation.design_snackbar_in = global::Safe.PL.Droid.Resource.Animation.design_snackbar_in;
 			global::Xamarin.Forms.Platform.Resource.Animation.design_snackbar_out = global::Safe.PL.Droid.Resource.Animation.design_snackbar_out;
-			global::Xamarin.Forms.Platform.Resource.Animation.EnterFromLeft = global::Safe.PL.Droid.Resource.Animation.EnterFromLeft;
-			global::Xamarin.Forms.Platform.Resource.Animation.EnterFromRight = global::Safe.PL.Droid.Resource.Animation.EnterFromRight;
-			global::Xamarin.Forms.Platform.Resource.Animation.ExitToLeft = global::Safe.PL.Droid.Resource.Animation.ExitToLeft;
-			global::Xamarin.Forms.Platform.Resource.Animation.ExitToRight = global::Safe.PL.Droid.Resource.Animation.ExitToRight;
 			global::Xamarin.Forms.Platform.Resource.Animator.design_appbar_state_list_animator = global::Safe.PL.Droid.Resource.Animator.design_appbar_state_list_animator;
 			global::Xamarin.Forms.Platform.Resource.Animator.design_fab_hide_motion_spec = global::Safe.PL.Droid.Resource.Animator.design_fab_hide_motion_spec;
 			global::Xamarin.Forms.Platform.Resource.Animator.design_fab_show_motion_spec = global::Safe.PL.Droid.Resource.Animator.design_fab_show_motion_spec;
@@ -8233,7 +8213,6 @@ namespace Safe.PL.Droid
 			global::Xamarin.Forms.Platform.Resource.Layout.abc_search_view = global::Safe.PL.Droid.Resource.Layout.abc_search_view;
 			global::Xamarin.Forms.Platform.Resource.Layout.abc_select_dialog_material = global::Safe.PL.Droid.Resource.Layout.abc_select_dialog_material;
 			global::Xamarin.Forms.Platform.Resource.Layout.abc_tooltip = global::Safe.PL.Droid.Resource.Layout.abc_tooltip;
-			global::Xamarin.Forms.Platform.Resource.Layout.BottomTabLayout = global::Safe.PL.Droid.Resource.Layout.BottomTabLayout;
 			global::Xamarin.Forms.Platform.Resource.Layout.design_bottom_navigation_item = global::Safe.PL.Droid.Resource.Layout.design_bottom_navigation_item;
 			global::Xamarin.Forms.Platform.Resource.Layout.design_bottom_sheet_dialog = global::Safe.PL.Droid.Resource.Layout.design_bottom_sheet_dialog;
 			global::Xamarin.Forms.Platform.Resource.Layout.design_layout_snackbar = global::Safe.PL.Droid.Resource.Layout.design_layout_snackbar;
@@ -8248,7 +8227,6 @@ namespace Safe.PL.Droid
 			global::Xamarin.Forms.Platform.Resource.Layout.design_navigation_menu = global::Safe.PL.Droid.Resource.Layout.design_navigation_menu;
 			global::Xamarin.Forms.Platform.Resource.Layout.design_navigation_menu_item = global::Safe.PL.Droid.Resource.Layout.design_navigation_menu_item;
 			global::Xamarin.Forms.Platform.Resource.Layout.design_text_input_password_icon = global::Safe.PL.Droid.Resource.Layout.design_text_input_password_icon;
-			global::Xamarin.Forms.Platform.Resource.Layout.FlyoutContent = global::Safe.PL.Droid.Resource.Layout.FlyoutContent;
 			global::Xamarin.Forms.Platform.Resource.Layout.mtrl_layout_snackbar = global::Safe.PL.Droid.Resource.Layout.mtrl_layout_snackbar;
 			global::Xamarin.Forms.Platform.Resource.Layout.mtrl_layout_snackbar_include = global::Safe.PL.Droid.Resource.Layout.mtrl_layout_snackbar_include;
 			global::Xamarin.Forms.Platform.Resource.Layout.notification_action = global::Safe.PL.Droid.Resource.Layout.notification_action;
@@ -8266,11 +8244,9 @@ namespace Safe.PL.Droid
 			global::Xamarin.Forms.Platform.Resource.Layout.notification_template_media_custom = global::Safe.PL.Droid.Resource.Layout.notification_template_media_custom;
 			global::Xamarin.Forms.Platform.Resource.Layout.notification_template_part_chronometer = global::Safe.PL.Droid.Resource.Layout.notification_template_part_chronometer;
 			global::Xamarin.Forms.Platform.Resource.Layout.notification_template_part_time = global::Safe.PL.Droid.Resource.Layout.notification_template_part_time;
-			global::Xamarin.Forms.Platform.Resource.Layout.RootLayout = global::Safe.PL.Droid.Resource.Layout.RootLayout;
 			global::Xamarin.Forms.Platform.Resource.Layout.select_dialog_item_material = global::Safe.PL.Droid.Resource.Layout.select_dialog_item_material;
 			global::Xamarin.Forms.Platform.Resource.Layout.select_dialog_multichoice_material = global::Safe.PL.Droid.Resource.Layout.select_dialog_multichoice_material;
 			global::Xamarin.Forms.Platform.Resource.Layout.select_dialog_singlechoice_material = global::Safe.PL.Droid.Resource.Layout.select_dialog_singlechoice_material;
-			global::Xamarin.Forms.Platform.Resource.Layout.ShellContent = global::Safe.PL.Droid.Resource.Layout.ShellContent;
 			global::Xamarin.Forms.Platform.Resource.Layout.support_simple_spinner_dropdown_item = global::Safe.PL.Droid.Resource.Layout.support_simple_spinner_dropdown_item;
 			global::Xamarin.Forms.Platform.Resource.String.abc_action_bar_home_description = global::Safe.PL.Droid.Resource.String.abc_action_bar_home_description;
 			global::Xamarin.Forms.Platform.Resource.String.abc_action_bar_up_description = global::Safe.PL.Droid.Resource.String.abc_action_bar_up_description;
@@ -9657,16 +9633,16 @@ namespace Safe.PL.Droid
 			public const int design_snackbar_out = 2130771995;
 			
 			// aapt resource value: 0x7F01001C
-			public const int EnterFromLeft = 2130771996;
+			public const int enterfromleft = 2130771996;
 			
 			// aapt resource value: 0x7F01001D
-			public const int EnterFromRight = 2130771997;
+			public const int enterfromright = 2130771997;
 			
 			// aapt resource value: 0x7F01001E
-			public const int ExitToLeft = 2130771998;
+			public const int exittoleft = 2130771998;
 			
 			// aapt resource value: 0x7F01001F
-			public const int ExitToRight = 2130771999;
+			public const int exittoright = 2130771999;
 			
 			static Animation()
 			{
@@ -13781,7 +13757,7 @@ namespace Safe.PL.Droid
 			public const int abc_tooltip = 2131492891;
 			
 			// aapt resource value: 0x7F0C001C
-			public const int BottomTabLayout = 2131492892;
+			public const int bottomtablayout = 2131492892;
 			
 			// aapt resource value: 0x7F0C001D
 			public const int browser_actions_context_menu_page = 2131492893;
@@ -13841,7 +13817,7 @@ namespace Safe.PL.Droid
 			public const int fingerprint_dialog_layout = 2131492911;
 			
 			// aapt resource value: 0x7F0C0030
-			public const int FlyoutContent = 2131492912;
+			public const int flyoutcontent = 2131492912;
 			
 			// aapt resource value: 0x7F0C0031
 			public const int mtrl_layout_snackbar = 2131492913;
@@ -13895,7 +13871,7 @@ namespace Safe.PL.Droid
 			public const int notification_template_part_time = 2131492929;
 			
 			// aapt resource value: 0x7F0C0042
-			public const int RootLayout = 2131492930;
+			public const int rootlayout = 2131492930;
 			
 			// aapt resource value: 0x7F0C0043
 			public const int select_dialog_item_material = 2131492931;
@@ -13907,7 +13883,7 @@ namespace Safe.PL.Droid
 			public const int select_dialog_singlechoice_material = 2131492933;
 			
 			// aapt resource value: 0x7F0C0046
-			public const int ShellContent = 2131492934;
+			public const int shellcontent = 2131492934;
 			
 			// aapt resource value: 0x7F0C0047
 			public const int support_simple_spinner_dropdown_item = 2131492935;

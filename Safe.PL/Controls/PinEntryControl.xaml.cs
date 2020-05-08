@@ -112,8 +112,6 @@ namespace Safe.PL.Controls
             }
         }
 
-        
-
         public UInt32 PinLength
         {
             get {
